@@ -1,6 +1,7 @@
 <?php
 // Inclure le fichier de connexion
 require_once '../connexion.php';
+
 session_start(); // Démarre la session pour la gestion de l'utilisateur connecté
 
 if (isset($_POST['submit'])) {
@@ -18,7 +19,7 @@ if (isset($_POST['submit'])) {
         // Si le mot de passe est correct, on crée une session pour l'utilisateur
         $_SESSION['id'] = $utilisateur['id'];
         $_SESSION['nom'] = $utilisateur['nom'];
-        $_SESSION['nom'] = $utilisateur['prenom'];
+        $_SESSION['prenom'] = $utilisateur['prenom'];
         $_SESSION['role'] = $utilisateur['role'];
 
         // Redirige l'utilisateur vers le tableau de bord
@@ -29,8 +30,13 @@ if (isset($_POST['submit'])) {
         }
         exit();
     } else {
-        $message = "Identifiants incorrects.";
+        $_SESSION['message'] = "Email ou mot de passe incorrect, réessayer une autre fois.";
+
+        // Redirection vers la page d'inscription
+        header("Location: ../pages/login.php");
+        exit;
     }
+
 }
 if (isset($message)) {
     echo "<p style='color:red;'>$message</p>";

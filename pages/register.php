@@ -32,6 +32,18 @@
         </div>
 
         <div class="right-part">
+            <?php
+                session_start(); // Démarrer la session
+
+                // Vérifier s'il y a un message en session et l'afficher
+                if (isset($_SESSION['message'])) {
+                    echo "<p style='color:red;'>".$_SESSION['message']."</p>";
+    
+                    // Supprimer le message après l'affichage
+                    unset($_SESSION['message']);
+                }
+            ?>
+            
             <h2>Inscrivez vous</h2>
     
             <form action="../actions/registerAction.php" method="post" class="form">
@@ -54,7 +66,7 @@
         
                 <label for="role">Votre rôle</label>
                 <select name="role" class="select-role" required>
-                    <option value="enseignant">Je suis un Enseignant</option>
+                    <option value="enseignant">Je suis un enseignant</option>
                     <option value="eleve">Je suis un élève</option>
                 </select>
         

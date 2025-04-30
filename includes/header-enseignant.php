@@ -4,6 +4,7 @@
         
     <div class="logo pacifico"><a href="dashboard.php">DzDucation</a></div>
         <ul class="nav-links" id="nav-links">
+            <li><a href="#" class="btn">Messagerie</a></li>
             <li class="dropdown-parent ressources">
               <a href="#">Ressources <i class="fa-solid fa-caret-down"></i></a>
               <div class="dropdown">
@@ -53,7 +54,7 @@
               </div>
             </li>
 
-            <li class='dropdown-parent'><a href='profil.php'><?php echo $_SESSION['nom'] ; ?> <i class='fa-solid fa-caret-down'></i></a>
+            <li class='dropdown-parent'><a href='profil.php'><?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] ; ?> <i class='fa-solid fa-caret-down'></i></a>
                 <ul class='dropdown'>
                     <li><a href='profil.php'>Mon Profil</a></li>
                     <li><a href='dashboard.php'>Mon Espace</a></li>

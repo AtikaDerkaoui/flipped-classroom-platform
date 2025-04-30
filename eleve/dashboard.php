@@ -25,11 +25,50 @@ if (!isset($_SESSION['id'])) {
 </head>
 
 <body>
+  <div class="hero">
     <?php require_once(__DIR__.'/../includes/header-eleve.php');
     ?>
 
-    <h1>Bienvenue, <?php echo $_SESSION['nom']; ?> !</h1>
-    <p>Vous êtes connecté en tant que ELEVE <?php /* echo $_SESSION['role'];*/ ?>.</p>
-    <a href="../actions/logoutAction.php">Se déconnecter</a>
+    <div class="dashboard-container">
+    <!-- ============= Navbar de bienvenu ============= -->
+      <section class="bienvenu-navbar space-between">
+        <h3 class="left-part">Bienvenue
+          <?php
+            echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] ;  
+          ?>
+        </h3>
+      
+        <h3><a href="#" class="right-part">Guide d'utilisation</a></h3>
+      </section>
+
+      <!-- ============= Dashboard ============= -->
+      <section class="dashboard space-between">
+        <div class="left-part">
+          <ul class="flex-centered">
+            <li><a href="#">Vos classes</a></li>
+            <li><a href="#">Elèves</a></li>
+            <li><a href="#">Cours extérieurs</a></li>
+            <hr>
+            <li><a href="#">Le forum</a></li>
+            <hr>
+            <li><a href="#">Guide d'utilisation</a></li>
+            <li><a href="#">Aide et conseils</a></li>
+          </ul>
+        </div>
+
+        <div class="right-part flex-centered">
+          <img src="../assets/img/pic-teacher.jpeg" alt="teacher-pic">
+          <h4>Bienvenue sur votre espace enseignant !</h4>
+          <p>Découvrez un outil conçu pour faciliter la mise en place 
+          de la classe inversée. Accédez à des ressources, échangez 
+          via le forum et le chat, et guidez vos élèves vers un 
+          apprentissage actif et autonome. Ensemble, transformons 
+          l'éducation !
+          </p>
+        </div>
+      </section>
+      
+    </div>
+  </div>
 </body>
 </html>

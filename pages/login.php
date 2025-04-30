@@ -42,6 +42,17 @@
           <label for="mot_de_passe">Mot de passe</label>
           <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
 
+          <?php
+                session_start(); // Démarrer la session
+
+                // Vérifier s'il y a un message en session et l'afficher
+                if (isset($_SESSION['message'])) {
+                    echo "<p style='color:red;'>".$_SESSION['message']."</p>";
+    
+                    // Supprimer le message après l'affichage
+                    unset($_SESSION['message']);
+                }
+            ?>
           <button type="submit" name="submit" class="btn">Se connecter</button>
         </form>
       </div>

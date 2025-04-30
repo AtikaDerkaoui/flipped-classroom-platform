@@ -17,14 +17,14 @@
   }
   .nav-links > li {
     padding: 0.5rem 1rem;
-    cursor: pointer;
   }
   .nav-links li a {
     text-decoration: none;
     color: var(--white);
     font-size: 1em;
+    cursor: pointer;
   }
-  .nav-links > li:hover a{
+  .nav-links li > a:hover{
     color: var(--yellow);
   }
   .nav-links .btn{
@@ -33,7 +33,7 @@
     box-shadow: none;
   }
   
-  /* DROPDOWN */
+  /* ========== DROPDOWN ========== */
   .nav-links .dropdown-parent{
     position: relative;
   }
@@ -68,7 +68,7 @@
   }
   
   
-  /* Ressources Dropdown */
+  /* ========== Ressources Dropdown ========== */
   .nav-links .ressources:hover  .dropdown{
     display: flex;
   }
@@ -122,3 +122,22 @@
   color: var(--white);
   cursor: pointer;
 }  
+
+
+/* ================================================= */
+/* =============== MEDIA QUERIES =============== */
+/* ================================================= */
+@media (max-width: 1280px) {
+  .navbar{
+    padding: 0.5rem 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo a{
+    font-size: 2.1em;
+  }
+  .nav-links li a {
+    font-size: 0.9em
+  }
+}
