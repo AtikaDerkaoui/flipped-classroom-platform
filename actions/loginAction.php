@@ -1,0 +1,38 @@
+<?php
+// Inclure le fichier de connexion
+require_once '../connexion.php';
+session_start(); // Démarre la session pour la gestion de l'utilisateur connecté
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $mot_de_passe = $_POST['mot_de_passe'];
+
+    // Vérifier si l'utilisateur existe dans la base de données
+    $sql = "SELECT * FROM utilisateurs WHERE email = :email";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($utilisateur && password_verify($mot_de_passe, $utilisateur['mot_de_passe'])) {
+        // Si le mot de passe est correct, on crée une session pour l'utilisateur
+        $_SESSION['id'] = $utilisateur['id'];
+        $_SESSION['nom'] = $utilisateur['nom'];
+        $_SESSION['nom'] = $utilisateur['prenom'];
+        $_SESSION['role'] = $utilisateur['role'];
+
+        // Redirige l'utilisateur vers le tableau de bord
+        if($_SESSION['role'] == 'eleve'){
+            header("Location: ../eleve/dashboard.php");
+        }else{
+            header("Location: ../enseignant/dashboard.php");
+        }
+        exit();
+    } else {
+        $message = "Identifiants incorrects.";
+    }
+}
+if (isset($message)) {
+    echo "<p style='color:red;'>$message</p>";
+}
+?>

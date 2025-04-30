@@ -1,0 +1,124 @@
+/* =============== HEADER =============== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--blue);
+    padding: 1rem 3rem;
+  }
+  .logo a{
+    color: var(--white);
+    font-size: 2.5em;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+  }
+  .nav-links > li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  .nav-links li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1em;
+  }
+  .nav-links > li:hover a{
+    color: var(--yellow);
+  }
+  .nav-links .btn{
+    color: var(--black_soft) !important;
+    padding: 10px 15px;
+    box-shadow: none;
+  }
+  
+  /* DROPDOWN */
+  .nav-links .dropdown-parent{
+    position: relative;
+  }
+  .nav-links .dropdown{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    background-color: var(--clearer_blue);
+    min-width: max-content;
+    border-radius: 10px !important;
+    cursor: default;
+    z-index: 99 !important;
+  }
+  .nav-links .dropdown li{
+    padding: 1rem 1rem !important;
+    border-bottom: 1px solid var(--white);
+    margin: 0 10px;
+  }
+  .nav-links .dropdown li a{
+    color: var(--black_soft);
+  }
+  .nav-links .dropdown > li a:hover{
+    color: var(--white) !important;
+  }
+  .nav-links .dropdown li:last-child{
+    border-bottom: none;
+  }
+  .nav-links .dropdown-parent:hover  .dropdown{
+    display: block;
+  }
+  
+  
+  /* Ressources Dropdown */
+  .nav-links .ressources:hover  .dropdown{
+    display: flex;
+  }
+  .nav-links .ressources .dropdown{
+    display: none;
+    justify-content: space-around;
+    gap: 0px;
+    padding: 1rem;
+    background-color: var(--white);
+    right: 80% !important;
+    transform: translateX(-80%);
+    border-radius: 0% !important;
+    z-index: 99999 !important;
+  }
+  .nav-links .ressources .dropdown ul:first-child{
+    border-right: 1px solid var(--black_soft);
+  }
+  .nav-links .ressources .dropdown ul:first-child img{
+    width: 6vw;
+    height: 6vw;
+  }
+  .nav-links .ressources .dropdown ul li{
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    gap: 1rem;
+  }
+  .nav-links .ressources .dropdown ul li div a:hover{
+    color: var(--blue);
+  }
+  .nav-links .ressources .dropdown ul li div a{
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--black_soft);
+    font-weight: bold;
+  }
+  .nav-links .ressources .dropdown ul li div p{
+    color: var(--clear_black);
+  }
+  .nav-links .ressources .dropdown ul:last-child img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+  }
+
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: var(--white);
+  cursor: pointer;
+}  
