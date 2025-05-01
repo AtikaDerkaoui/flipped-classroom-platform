@@ -14,6 +14,7 @@ if (!isset($_SESSION['id'])) {
   <!-- Fichiers CSS -->
   <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
   <link rel="stylesheet" type="text/css" href="../assets/styles/header-styles.css">
+  <link rel="stylesheet" type="text/css" href="../assets/styles/ens-styles.css">
   <!-- Animation JS -->
   <script type="text/javascript" src="../assets/scripts/scripts.js" defer></script>
   <!-- Les icônes fontawesome -->
@@ -25,7 +26,6 @@ if (!isset($_SESSION['id'])) {
 </head>
 
 <body>
-  <div class="hero">
     <?php require_once(__DIR__.'/../includes/header-enseignant.php');
     ?>
 
@@ -45,30 +45,42 @@ if (!isset($_SESSION['id'])) {
      <section class="dashboard space-between">
       <div class="left-part">
         <ul class="flex-centered">
-          <li><a href="#">Vos classes</a></li>
-          <li><a href="#">Elèves</a></li>
-          <li><a href="#">Cours extérieurs</a></li>
+          <li><a href="dashboard.php?page=classes">Vos classes</a></li>
+          <li><a href="dashboard.php?page=eleves">Elèves</a></li>
+          <li><a href="dashboard.php?page=cours_ext">Cours extérieurs</a></li>
           <hr>
-          <li><a href="#">Le forum</a></li>
+          <li><a href="dashboard.php?page=accueil">Le forum</a></li>
           <hr>
-          <li><a href="#">Guide d'utilisation</a></li>
-          <li><a href="#">Aide et conseils</a></li>
+          <li><a href="dashboard.php?page=accueil">Guide d'utilisation</a></li>
+          <li><a href="dashboard.php?page=accueil">FAQ</a></li>
         </ul>
         
       </div>
 
       <div class="right-part flex-centered">
-        <img src="../assets/img/pic-teacher.jpeg" alt="teacher-pic">
-        <h4>Bienvenue sur votre espace enseignant !</h4>
-        <p>Découvrez un outil conçu pour faciliter la mise en place 
-          de la classe inversée. Accédez à des ressources, échangez 
-          via le forum et le chat, et guidez vos élèves vers un 
-          apprentissage actif et autonome. Ensemble, transformons 
-          l'éducation !
-        </p>
+        <?php 
+          // Récupérer la page depuis l’URL
+          $page = $_GET['page'] ?? 'accueil';
+
+          // Inclure dynamiquement la bonne page
+          switch ($page) {
+    case 'classes':
+        include('pages/classes.php');
+        break;
+    case 'eleves':
+        include('pages/eleves.php');
+        break;
+    case 'cours':
+        include('pages/cours_ext.php');
+        break;
+    case 'accueil':
+    default:
+        include('pages/accueil.php');
+        break;
+          }
+        ?>
       </div>
      </section>
     </div>
-  </div>
 </body>
 </html>

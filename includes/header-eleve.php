@@ -4,6 +4,7 @@
         
     <div class="logo pacifico"><a href="dashboard.php">DzDucation</a></div>
         <ul class="nav-links" id="nav-links">
+            <li><a href="#" class="btn">Messagerie</a></li>
             <li class="dropdown-parent ressources">
               <a href="#">Ressources <i class="fa-solid fa-caret-down"></i></a>
               <div class="dropdown">

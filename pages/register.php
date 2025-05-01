@@ -1,3 +1,19 @@
+<?php
+  session_start();
+
+  // Vérifier si l'utilisateur est déjà connecté
+  if (isset($_SESSION['id'])) {
+    // Si l'utilisateur est connecté, rediriger vers dashboard.php
+    if ($_SESSION['role'] == 'enseignant') {
+      header("Location: ../enseignant/dashboard.php");
+      exit();  // Toujours appeler exit après header
+    } elseif ($_SESSION['role'] == 'etudiant') {
+      header("Location: ../eleve/dashboard.php");
+      exit();
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

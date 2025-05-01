@@ -1,3 +1,19 @@
+<?php
+  session_start();
+
+  // Vérifier si l'utilisateur est déjà connecté
+  if (isset($_SESSION['id'])) {
+    // Si l'utilisateur est connecté, rediriger vers dashboard.php
+    if ($_SESSION['role'] == 'enseignant') {
+      header("Location: ../enseignant/dashboard.php");
+      exit();  // Toujours appeler exit après header
+    } elseif ($_SESSION['role'] == 'etudiant') {
+      header("Location: ../eleve/dashboard.php");
+      exit();
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,8 +59,6 @@
           <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
 
           <?php
-                session_start(); // Démarrer la session
-
                 // Vérifier s'il y a un message en session et l'afficher
                 if (isset($_SESSION['message'])) {
                     echo "<p style='color:red;'>".$_SESSION['message']."</p>";
