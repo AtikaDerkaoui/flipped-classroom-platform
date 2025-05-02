@@ -79,6 +79,8 @@
     flex-direction: column;
     background-color: var(--clearer_gray);
     width: 80vw;
+    height: 77vh;
+    
 }
 .dashboard .right-part .accueil img{
     width: 25vw;

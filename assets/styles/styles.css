@@ -89,6 +89,9 @@ h1, h2, h3, h4, h5, h6{
   display: flex;
   flex-direction: row;
 }
+.border{
+  border: 3px solid red;
+}
 
 
 /* ================================================ */
@@ -141,14 +144,6 @@ h1, h2, h3, h4, h5, h6{
   border: 2px solid var(--blue);
 }
 
-/* Page héro avec 100vh */
-.hero{
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-
 
 /* ============================================= */
 /* =============== REGISTER PAGE =============== */
@@ -157,9 +152,10 @@ h1, h2, h3, h4, h5, h6{
   flex: 1;
 }
 .register-container{
-  flex: 1;
   background-color: var(--white);
   padding: 0px 5vw;
+  height: 85vh;
+  margin-top: 15vh;
 }
 /* LEFT PART */
 .register-container .left-part{
@@ -222,11 +218,11 @@ h1, h2, h3, h4, h5, h6{
 /* ================================================= */
 
 .principal{
-  flex: 1; /* Prend le reste de l'espace dans les 100vh */
-  overflow: hidden;
   background-color: var(--white);
   position: relative;
   padding: 0px 8vw;
+  height: 85vh;
+  margin-top: 15vh;
 }
 .principal .left-part, .principal .right-part{
   width: 40%;
@@ -244,7 +240,7 @@ h1, h2, h3, h4, h5, h6{
   font-size: 17px;
 }
 .principal .left-part .btn{
-z-index: 3;
+  z-index: 3;
 }
 .principal .right-part .img-container{
   background-image: url(/../Memoire/assets/img/classe1.png);

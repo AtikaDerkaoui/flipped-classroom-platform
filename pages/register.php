@@ -12,31 +12,14 @@
       exit();
     }
   }
+
+  // Le head
+  $titre = "DzDucation - Inscrivez vous"; // titre de la page
+  require_once(__DIR__.'/../includes/head.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>DzDucation - Inscription</title>
-  <!-- Fichiers CSS -->
-  <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
-  <link rel="stylesheet" type="text/css" href="../assets/styles/header-styles.css">
-  <!-- Animation JS -->
-  <script type="text/javascript" src="../assets/scripts/scripts.js" defer></script>
-  <!-- Les icônes fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"/>
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-</head>
 
 <body>
-    <div class="hero">
     <?php require_once(__DIR__.'/../includes/header.php');
     ?>
 
@@ -49,8 +32,6 @@
 
         <div class="right-part">
             <?php
-                session_start(); // Démarrer la session
-
                 // Vérifier s'il y a un message en session et l'afficher
                 if (isset($_SESSION['message'])) {
                     echo "<p style='color:red;'>".$_SESSION['message']."</p>";
@@ -90,8 +71,5 @@
             </form>
         </div>
     </div>
-    </div>
-    
-
 </body>
 </html>
