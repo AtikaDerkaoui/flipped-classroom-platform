@@ -1,0 +1,261 @@
+/* ================================================= */
+/* =============== Dashboard =============== */
+/* ================================================= */
+.dashboard-container{
+    box-sizing: border-box;
+}
+
+/* Navbar de bienvenue */
+.bienvenu-navbar{
+    background-color: var(--blue);
+    border-top: 1px solid var(--white);
+    padding: 1rem 10vw;
+    height: 8vh;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    z-index: 900;
+}
+.bienvenu-navbar h3{
+    color: var(--white);
+    font-size: 13pt;
+    font-weight: 400;
+}
+.bienvenu-navbar a:hover{
+    color: var(--yellow);
+}
+
+/* ==== Dashboard ==== */
+.dashboard{
+    position: relative;
+    margin-top: 23vh;
+}
+
+/* ==== Left Part ==== */
+.dashboard > .left-part{
+    max-width: 25vw !important;
+    width: 20vw;
+    height: 77vh;
+    background-color: var(--clear_blue);
+    color: var(--black_soft);
+    font-size: 13pt;
+    font-weight: lighter;
+    padding: 2rem 0vw;
+    position: sticky;
+    top: 23vh;
+    left: 0;
+}
+.dashboard > .left-part ul{
+    flex-direction: column;
+}
+.dashboard > .left-part ul li{
+    width: 100%;
+}
+.dashboard > .left-part ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0.7rem 2vw;
+}
+.dashboard > .left-part ul li:hover{
+    background-color: var(--clearer_blue);
+}
+.dashboard > .left-part ul hr{
+    margin: 1.5rem 0px;
+    color: var(--black_soft);
+    width: 80%;
+    text-align: center;
+}
+  
+/* ==== Right Part ==== */
+.dashboard > .right-part{
+    background-color: var(--clearer_gray);
+    width: 80vw;
+}
+
+
+/* ================================================= */
+/* =============== DASHBOARD: ACCUEIL =============== */
+/* ================================================= */
+.dashboard .right-part .accueil{
+    flex-direction: column;
+    background-color: var(--clearer_gray);
+    width: 80vw;
+    height: 77vh;
+}
+.dashboard .right-part .accueil img{
+    width: 25vw;
+    border-radius: 10vw;
+    margin-bottom: 2rem;
+}
+.dashboard .right-part .accueil p{
+    display: block;
+    width: 60%;
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.7rem;
+}
+
+
+/* ================================================= */
+/* =============== DASHBOARD: CLASSES =============== */
+/* ================================================= */
+.dashboard .classes{
+    padding: 5vh 5vw;
+}
+.ajout-classe{
+    width: 70%;
+    height: 2rem;
+    border-bottom: 1px solid var(--blue);
+    color: var(--clear_black);
+    font-weight: 300 !important;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+.ajout-classe button{
+    border: 2px solid var(--blue);
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: transparent;
+    color: var(--blue);
+    cursor: pointer
+}
+.ajout-classe button:hover{
+    transform: scale(1.2);
+}
+
+/* === Les classes === */
+.classes-container{
+    width: 70%;
+    height:fit-content;
+}
+.classes-container .classe{
+    height: 6rem;
+    width: 100%;
+    border-radius: 15px;
+    background-color: var(--clear_gray);
+    box-shadow: 2px 2px 8px #3333335e;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+.classes-container .classe:hover{
+    background-color: #c5c5c5;
+}
+.classes-container .classe .left-part{
+    gap: 15px !important;
+}
+.classes-container .classe .left-part img{
+    background-color: var(--clearer_blue);
+    padding: 5px;
+    border-radius: 15px;
+}
+.classes-container .classe .left-part h4{
+    color: var(--blue);
+}
+.classes-container .classe .left-part .right-part, .classes-container .classe .right-part{
+    display: flex;
+    flex-direction: column;
+}
+.classes-container .classe .left-part .right-part div, .classes-container .classe .right-part a{
+    margin-top: auto;
+}
+.classes-container .classe .left-part .right-part div h6:first-child{
+    margin-bottom: 0.5rem;
+}
+.classes-container .classe .left-part .right-part div h6, .classes-container .classe .right-part h6{
+    font-size: 11pt;
+    font-weight: normal;
+}
+.classes-container .classe .right-part a{
+    color: var(--blue);
+    text-align: right;
+}
+.classes-container .classe > .right-part{
+    text-align: right;
+}
+
+/* Formulaire pour ajouter une page */
+.ajout-classe-form{
+    background-color: rgba(0, 0, 0, 0.521);
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.show{
+    display: flex !important;
+}
+.ajout-classe-form form{
+    width: 50vw;
+    height: fit-content;
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 1rem 3rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.ajout-classe-form .header{
+    border-bottom: 2px solid var(--clear_blue);
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+.ajout-classe-form .header img{
+    width: 60px;
+    height: 60px;
+}
+.ajout-classe-form .header .left-part{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.ajout-classe-form .header .left-part h3{
+    color: var(--clear_blue);
+}
+
+.ajout-classe-form form label{
+    font-weight: bold;
+}
+.ajout-classe-form form > .input-container{
+    margin-bottom: 1.2rem
+}
+
+
+/* ================================================= */
+/* =============== MEDIA QUERIES =============== */
+/* ================================================= */
+@media (max-width: 1280px) {
+    /* ====== ENSEIGNANT: Dashboard ====== */
+    .bienvenu-navbar{
+      padding: 0px 10vw;
+    }
+    .dashboard .left-part{
+      width: 18vw;
+      font-size: 12pt;
+    }
+    .dashboard .right-part{
+      width: 82vw;
+    }
+}
+  
+@media (max-width: 1024px) {
+    .bienvenu-navbar h3{
+      font-size: 11pt;
+    }
+    .dashboard .left-part{
+      width: 20vw;
+    }
+    .dashboard .right-part{
+      width: 80vw;
+    }
+}

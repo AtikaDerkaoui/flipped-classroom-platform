@@ -13,7 +13,7 @@
     --yellow: #F3BA00;
   
     --blue: #01587A;
-    --clear_blue: #5CB3C1;
+    --clear_blue: #5cb3c1;
     --clearer_blue: #99D8DD;
   }
 
@@ -74,6 +74,10 @@ h1, h2, h3, h4, h5, h6{
   display: flex;
   justify-content: space-between;
 }
+.flex-start{
+  display: flex;
+  justify-content: flex-start;
+}
 .flex-centered{
   display: flex;
   justify-content: center;
@@ -81,6 +85,18 @@ h1, h2, h3, h4, h5, h6{
 }
 .absolute-centered{
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fixed-centered{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sticky-centered{
+  position: sticky;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -143,7 +159,19 @@ h1, h2, h3, h4, h5, h6{
   outline: none;
   border: 2px solid var(--blue);
 }
-
+.close-button{
+  width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--clear_blue);
+    color: var(--white);
+    font-size: 16pt;
+    cursor: pointer;
+}
+.close-button:hover{
+  transform: scale(1.2);
+}
 
 /* ============================================= */
 /* =============== REGISTER PAGE =============== */

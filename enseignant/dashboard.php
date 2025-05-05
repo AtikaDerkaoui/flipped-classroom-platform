@@ -12,10 +12,10 @@ require_once(__DIR__.'/../includes/head.php');
 
 
 <body>
-    <?php require_once(__DIR__.'/../includes/header-enseignant.php');
-    ?>
+  <?php require_once(__DIR__.'/../includes/header-enseignant.php');
+  ?>
 
-    <div class="dashboard-container">
+  <div class="dashboard-container">
     <!-- ============= Navbar de bienvenu ============= -->
     <section class="bienvenu-navbar space-between">
         <h3 class="left-part">Bienvenue
@@ -31,9 +31,12 @@ require_once(__DIR__.'/../includes/head.php');
      <section class="dashboard space-between">
       <div class="left-part">
         <ul class="flex-centered">
-          <li><a href="dashboard.php?page=classes">Vos classes</a></li>
-          <li><a href="dashboard.php?page=eleves">Elèves</a></li>
-          <li><a href="dashboard.php?page=cours_ext">Cours extérieurs</a></li>
+          <li><a href="dashboard.php?page=classes">Classes</a></li>
+          <li><a href="dashboard.php?page=eleves">Modules</a></li>
+          <li><a href="dashboard.php?page=cours_ext">Niveaux</a></li>
+          <li><a href="dashboard.php?page=cours_ext">Supports pédagogiques</a></li>
+          <li><a href="dashboard.php?page=cours_ext">Capsules vidéos</a></li>
+          <li><a href="dashboard.php?page=cours_ext">Quizz</a></li>
           <hr>
           <li><a href="dashboard.php?page=accueil">Le forum</a></li>
           <hr>
@@ -67,6 +70,6 @@ require_once(__DIR__.'/../includes/head.php');
         ?>
       </div>
      </section>
-    </div>
+  </div>
 </body>
 </html>

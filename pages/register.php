@@ -52,7 +52,6 @@
                     <div class="input-container">
                         <label for="prenom">Prenom</label>
                         <input type="text" name="prenom" placeholder="Prenom" required>
-                
                     </div>
                 </div>
                 <label for="email">Votre email</label>

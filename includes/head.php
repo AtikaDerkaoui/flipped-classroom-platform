@@ -6,7 +6,7 @@
   <!-- Fichiers CSS -->
   <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/header-styles.css">
   <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/styles.css">
-  <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/ens-styles.css">
+  <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/dashboard-styles.css">
   <!-- Animation JS -->
   <script type="text/javascript" src="/../Memoire/assets/scripts/scripts.js" defer></script>
   <!-- Les icônes fontawesome -->
