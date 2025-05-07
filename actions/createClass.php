@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $module = $_POST['module'];
 
     // id_enseignant
-    $enseignant_id = $_SESSION['id'];
+    $enseignant_id = $_SESSION['user_id'];
 
     // Insérer la classe dans la base de données
     $sql = "INSERT INTO classes (nom, niveau_id, module, enseignant_id) VALUES (:nom, :niveau_id, :module, :enseignant_id)";
@@ -19,5 +19,8 @@ if (isset($_POST['submit'])) {
     $stmt->bindParam(':module', $module);
     $stmt->bindParam(':enseignant_id', $enseignant_id);
     $stmt->execute();
+
+    header("Location: ../enseignant/dashboard.php?page=classes");
+    exit;
 }
 ?>

@@ -2,7 +2,7 @@
   session_start();
 
   // Vérifier si l'utilisateur est déjà connecté
-  if (isset($_SESSION['id'])) {
+  if (isset($_SESSION['user_id'])) {
     // Si l'utilisateur est connecté, rediriger vers dashboard.php
     if ($_SESSION['role'] == 'enseignant') {
       header("Location: enseignant/dashboard.php");

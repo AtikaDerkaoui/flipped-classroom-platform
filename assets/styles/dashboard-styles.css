@@ -201,14 +201,12 @@
     border-radius: 20px;
     padding: 1rem 3rem;
     padding-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
 }
-
 .ajout-classe-form .header{
     border-bottom: 2px solid var(--clear_blue);
     align-items: center;
     margin-bottom: 1.2rem;
+    width: 100%
 }
 .ajout-classe-form .header img{
     width: 60px;
@@ -222,12 +220,49 @@
 .ajout-classe-form .header .left-part h3{
     color: var(--clear_blue);
 }
-
-.ajout-classe-form form label{
-    font-weight: bold;
+.ajout-classe-form .input-container{
+    width: 90%;
 }
-.ajout-classe-form form > .input-container{
-    margin-bottom: 1.2rem
+.ajout-classe-form .input-container label{
+    font-weight: bold;
+    color: var(--black_soft);
+    display: block;
+}
+.ajout-classe-form .input-container p{
+    color: var(--gray);
+}
+.ajout-classe-form .input-container input{
+    width: 100%;
+    height: 2rem;
+}
+.ajout-classe-form .input-container input, .ajout-classe-form .input-container select{
+    margin-bottom: 1rem;
+}
+.ajout-classe-form .input-container label, .ajout-classe-form .input-container p{
+    margin-bottom: 0.5rem;
+}
+.ajout-classe-form .input-container .form-select{
+    width: 100%;
+    height: 2rem;
+}
+.ajout-classe-form .input-container button{
+    width: 50%;
+    height: 2.8rem;
+    box-shadow: none;
+    border: none;
+    background-color: var(--clear_blue);
+    font-family: "Nunito", sans-serif;
+    font-size: 14pt;
+    color: var(--white);
+}
+.ajout-classe-form .input-container button:hover{
+    background-color: var(--blue);
+    width: 60%
+}
+.ajout-classe-form .input-container .btn-container{
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
 }
 
 

@@ -2,7 +2,7 @@
   session_start();
 
   // Vérifier si l'utilisateur est déjà connecté
-  if (isset($_SESSION['id'])) {
+  if (isset($_SESSION['user_id'])) {
     // Si l'utilisateur est connecté, rediriger vers dashboard.php
     if ($_SESSION['role'] == 'enseignant') {
       header("Location: ../enseignant/dashboard.php");
@@ -54,14 +54,14 @@
                         <input type="text" name="prenom" placeholder="Prenom" required>
                     </div>
                 </div>
-                <label for="email">Votre email</label>
+                <label for="email" >Votre email</label>
                 <input type="email" name="email" placeholder="exemple@gmail.com" required>
         
                 <label for="mot_de_passe">Mot de passe</label>
                 <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
         
                 <label for="role">Votre rôle</label>
-                <select name="role" class="select-role" required>
+                <select name="role" class="select-role form-select" required>
                     <option value="enseignant">Je suis un enseignant</option>
                     <option value="eleve">Je suis un élève</option>
                 </select>

@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 
     if ($utilisateur && password_verify($mot_de_passe, $utilisateur['mot_de_passe'])) {
         // Si le mot de passe est correct, on crée une session pour l'utilisateur
-        $_SESSION['id'] = $utilisateur['id'];
+        $_SESSION['user_id'] = $utilisateur['id'];
         $_SESSION['nom'] = $utilisateur['nom'];
         $_SESSION['prenom'] = $utilisateur['prenom'];
         $_SESSION['role'] = $utilisateur['role'];
