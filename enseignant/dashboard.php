@@ -31,7 +31,7 @@ require_once(__DIR__.'/../includes/head.php');
     <!-- ============= Dashboard ============= -->
      <section class="dashboard space-between">
       <div class="left-part">
-        <ul class="flex-centered">
+        <ul>
           <li><a href="dashboard.php?page=classes">Classes</a></li>
           <li><a href="dashboard.php?page=eleves">Modules</a></li>
           <li><a href="dashboard.php?page=cours_ext">Niveaux</a></li>

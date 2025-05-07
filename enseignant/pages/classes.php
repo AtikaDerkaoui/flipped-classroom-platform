@@ -4,9 +4,10 @@ require_once '../connexion.php';
 
 $enseignant_id = $_SESSION['user_id'];
 
-$sql = "SELECT classes.nom AS nom_classe, niveaux.nom AS nom_niveau, classes.module
+$sql = "SELECT classes.nom AS nom_classe, classes.id AS id_classe,niveaux.nom AS nom_niveau, departements.nom_departement AS nom_departement, classes.module
         FROM classes
         JOIN niveaux ON classes.niveau_id = niveaux.id
+        JOIN departements ON classes.id_departement = departements.id_departement
         WHERE classes.enseignant_id = :enseignant_id";
 
 $stmt = $conn->prepare($sql);
@@ -15,18 +16,21 @@ $stmt->execute();
 $classes = $stmt->fetchAll();
 ?>
 
+<!-- ====================================================== --> 
+<!-- ============= Liste des classes ajoutées ============= -->
+<!-- ====================================================== --> 
 <div class="classes">
-<!-- Ajouter une classe -->
 <section class="ajout-classe space-between">
-    <p>Mes classes</p>
+    <p style="font-weight: bold">Mes classes</p>
     <p>Ajouter une classe <button onclick="afficherFormulaireClasse()"><i class="fa-solid fa-plus"></i></button></p>
 </section>
+
 
 <section class="classes-container">
     <?php if (count($classes) > 0): ?>
         <?php foreach ($classes as $classe): ?>
-            
-            <div class="classe space-between">
+            <div class="classe space-between" onclick="window.location.href='pages/classe-detail.php?id_classe=<?= $classe['id_classe'] ?>'" title="Consulter la classe">
+
                 <div class="left-part flex-start">
                     <img src="../assets/img/class-scene-blue.png" alt="classe-pic">
 
@@ -40,7 +44,6 @@ $classes = $stmt->fetchAll();
                 </div>
                 <div class="right-part">
                     <h6><?= htmlspecialchars($classe['module']) ?></h6>
-                    <a href="#"><h4>Consulter >></h4></a>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -62,10 +65,22 @@ $classes = $stmt->fetchAll();
     </div>
     <!-- Le formulaire -->
     <div class="input-container">
-        <label for="">Titre de classe:</label>
-        <p>Ce titre est celui que vos élèves verront</p>
+        <label for="">Nom de votre classe</label>
+        <p>Ce nom est celui que vous et vos élèves verront</p>
         <input type="text" name="nom" placeholder="Ex: Analyse mathématique - Section B " required>
     
+        <label for="id_departement">Département</label>
+        <p>Choisissez l'un de ces départements</p>
+        <select name="id_departement" class="form-select" required>
+        <?php 
+            $departement = $conn->query("SELECT * FROM departements");
+
+            foreach ($departement as $row) {
+                echo "<option value='" . $row['id_departement'] . "'>" . $row['nom_departement'] . "</option>";
+            }
+        ?>
+        </select>
+
         <label for="niveau_id">Niveau:</label>
         <p>Choisissez le niveau enseigné dans cette classe</p>
         <select name="niveau_id" class="form-select" required>

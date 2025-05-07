@@ -1,0 +1,8 @@
+Classes:
+	id 	nom 	niveau_id 	module 	enseignant_id 	date_creation 	id_departement 	
+
+Departements
+    id_departement 	nom_departement 
+
+Niveaux	
+    id 	nom

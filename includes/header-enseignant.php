@@ -2,7 +2,7 @@
 <header class="header">
   <nav class="navbar">
         
-    <div class="logo pacifico"><a href="dashboard.php">DzDucation</a></div>
+    <div class="logo pacifico"><a href="/Memoire/enseignant/dashboard.php">DzDucation</a></div>
         <ul class="nav-links" id="nav-links">
             <li><a href="#" class="btn">Messagerie</a></li>
             <li class="dropdown-parent ressources">

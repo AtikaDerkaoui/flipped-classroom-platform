@@ -1,6 +1,11 @@
 /* ================================================= */
 /* =============== Dashboard =============== */
 /* ================================================= */
+
+/* Height of principal navbar: 15vh;
+   Height of bienvenu-navbar: 8vh;
+   15vh + 8vh = 23vh 
+ */
 .dashboard-container{
     box-sizing: border-box;
 }
@@ -30,7 +35,6 @@
 /* ==== Dashboard ==== */
 .dashboard{
     position: relative;
-    margin-top: 23vh;
 }
 
 /* ==== Left Part ==== */
@@ -38,29 +42,36 @@
     max-width: 25vw !important;
     width: 20vw;
     height: 77vh;
-    background-color: var(--clear_blue);
+    background-color: var(--clearer_blue);
     color: var(--black_soft);
     font-size: 13pt;
     font-weight: lighter;
     padding: 2rem 0vw;
-    position: sticky;
+    position: fixed;
     top: 23vh;
     left: 0;
 }
 .dashboard > .left-part ul{
     flex-direction: column;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .dashboard > .left-part ul li{
     width: 100%;
+    min-height: fit-content;
+    height: 2rem;
+    cursor: pointer;
 }
 .dashboard > .left-part ul li a{
     display: block;
-    width: 100%;
     height: 100%;
-    padding: 0.7rem 2vw;
+    width: 100%;
+    padding-left: 2vw;
 }
-.dashboard > .left-part ul li:hover{
-    background-color: var(--clearer_blue);
+.dashboard > .left-part ul li:hover a{
+    color: var(--clearer_blue);
 }
 .dashboard > .left-part ul hr{
     margin: 1.5rem 0px;
@@ -71,8 +82,12 @@
   
 /* ==== Right Part ==== */
 .dashboard > .right-part{
-    background-color: var(--clearer_gray);
+    background-color: var(--white);
     width: 80vw;
+    min-height: 77vh;
+    height: fit-content;
+    margin-top: 23vh;
+    margin-left: 20vw;
 }
 
 
@@ -81,7 +96,6 @@
 /* ================================================= */
 .dashboard .right-part .accueil{
     flex-direction: column;
-    background-color: var(--clearer_gray);
     width: 80vw;
     height: 77vh;
 }
@@ -136,14 +150,14 @@
     height: 6rem;
     width: 100%;
     border-radius: 15px;
-    background-color: var(--clear_gray);
-    box-shadow: 2px 2px 8px #3333335e;
+    border: 1px solid var(--gray2);
     padding: 0.7rem 1rem;
     cursor: pointer;
     margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .classes-container .classe:hover{
-    background-color: #c5c5c5;
+    background-color: var(--clearer_gray);
 }
 .classes-container .classe .left-part{
     gap: 15px !important;
