@@ -48,7 +48,7 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s ease;
 }
 body{
   margin: 0;

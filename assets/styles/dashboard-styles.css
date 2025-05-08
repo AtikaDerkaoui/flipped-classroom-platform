@@ -71,7 +71,8 @@
     padding-left: 2vw;
 }
 .dashboard > .left-part ul li:hover a{
-    color: var(--clearer_blue);
+    color: var(--blue);
+    font-weight: bold;
 }
 .dashboard > .left-part ul hr{
     margin: 1.5rem 0px;
@@ -184,14 +185,12 @@
     font-size: 11pt;
     font-weight: normal;
 }
-.classes-container .classe .right-part a{
-    color: var(--blue);
-    text-align: right;
-}
 .classes-container .classe > .right-part{
     text-align: right;
 }
-
+.classes-container .classe > .right-part h4{
+    color: var(--yellow)
+}
 /* Formulaire pour ajouter une page */
 .ajout-classe-form{
     background-color: rgba(0, 0, 0, 0.521);
