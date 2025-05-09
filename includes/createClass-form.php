@@ -9,12 +9,15 @@
         </div>
         <button type="button" onclick="afficherFormulaireClasse()" class="close-button"><i class="fa-solid fa-xmark"></i></button>
     </div>
+    
     <!-- Le formulaire -->
     <div class="input-container">
+        <!-- Nom de la classe -->
         <label for="nom_classe">Nom de votre classe</label>
         <p>Ce nom est celui que vous et vos élèves verront</p>
         <input type="text" name="nom_classe" placeholder="Ex: Analyse mathématique - Section B " required>
     
+        <!-- Département de la classe -->
         <label for="id_departement">Département</label>
         <p>Choisissez l'un de ces départements</p>
         <select name="id_departement" class="form-select" required>
@@ -27,6 +30,7 @@
         ?>
         </select>
 
+        <!-- Niveau de la classe -->
         <label for="id_niveau">Niveau</label>
         <p>Choisissez le niveau enseigné dans cette classe</p>
         <select name="id_niveau" class="form-select" required>
@@ -39,10 +43,12 @@
         ?>
         </select>
 
+        <!-- Matière enseignée (module) -->
         <label for="module">Matière (Ou contenu pédagogique)</label>
         <p>Ex: Mathématique ou Les verbes du 1er groupe</p>
         <input type="text" name="module" placeholder="Ex: Mathématique" required>
 
+        <!-- Submit -->
         <div class="btn-container">
             <button type="submit" name="submit">Ajouter la classe</button>
         </div>

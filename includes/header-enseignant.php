@@ -10,7 +10,8 @@
               <div class="dropdown">
                 <ul>
                   <li>
-                    <img src="../assets/img/ressources-pic1.png">
+                    <img src="/Memoire/assets/img/ressources-pic1.png">
+                    <!--<img src="../assets/img/ressources-pic1.png">-->
                     <div>
                       <a href="#">Comprendre la classe inversée</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -18,7 +19,7 @@
                   </li>
 
                   <li>
-                    <img src="../assets/img/ressources-pic2.png">
+                    <img src="/Memoire/assets/img/ressources-pic2.png">
                     <div>
                       <a href="#">La classe inversée dans le monde</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -26,7 +27,7 @@
                   </li>
 
                   <li>
-                    <img src="../assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
                       <a href="#">La classe inversée en Algérie</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -36,7 +37,7 @@
 
                 <ul>
                   <li>
-                    <img src="../assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
                       <a href="#">Apprendre à utiliser la plateforme</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -44,7 +45,7 @@
                   </li>
 
                   <li>
-                    <img src="../assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
                       <a href="#">FAQ</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>

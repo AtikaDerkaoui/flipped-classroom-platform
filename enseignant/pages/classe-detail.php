@@ -14,9 +14,14 @@ require_once(__DIR__.'/../../includes/head.php');
 require_once '../../connexion.php';
 
 $id_classe = $_GET['id_classe'];
-$sql = "SELECT classes.nom_classe AS nom_classe, niveaux.nom_niveau AS nom_niveau, classes.module, utilisateurs.nom AS nom_enseignant, utilisateurs.prenom AS prenom_enseignant
+$sql = "SELECT classes.nom_classe AS nom_classe, 
+        departements.nom_departement AS nom_departement,
+        niveaux.nom_niveau AS nom_niveau, classes.module, 
+        utilisateurs.nom AS nom_enseignant, 
+        utilisateurs.prenom AS prenom_enseignant
         FROM classes
         JOIN niveaux ON classes.id_niveau = niveaux.id_niveau
+        JOIN departements ON classes.id_departement = departements.id_departement
         JOIN utilisateurs ON classes.id_enseignant = utilisateurs.id
         WHERE classes.id_classe = :id_classe";
 
@@ -24,6 +29,13 @@ $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id_classe', $id_classe);
 $stmt->execute();
 $classe = $stmt->fetch();
+
+$sql_supports = "SELECT * FROM supports WHERE id_classe = :id_classe";
+$stmt_supports = $conn->prepare($sql_supports);
+$stmt_supports->bindParam(':id_classe', $id_classe);
+$stmt_supports->execute();
+$supports = $stmt_supports->fetchAll();
+
 ?>
 
 <body>
@@ -44,79 +56,69 @@ $classe = $stmt->fetch();
     </section>
 
     <!-- ============= Dashboard ============= -->
-     <section class="dashboard space-between">
+    <section class="dashboard space-between">
+      <!-- Left part: Side Navbar -->
       <div class="left-part">
         <ul class="flex-centered">
-          <li><a href="#">Ma classe</a></li>
-          <li><a href="#">Elèves</a></li>
-          <li><a href="#">Supports pédagogiques</a></li>
-          <li><a href="#">Vidéos et feedback</a></li>
-          <li><a href="#">Quizz</a></li>
+          <li><a href="classe-detail.php?page2=ma-classe&id_classe=<?= $id_classe ?>">Ma classe</a></li>
+          <li><a href="classe-detail.php?page2=eleves&id_classe=<?= $id_classe ?>">Elèves</a></li>
+          <li><a href="classe-detail.php?page2=supports&id_classe=<?= $id_classe ?>">Supports pédagogiques</a></li>
+          <li><a href="classe-detail.php?page2=videos&id_classe=<?= $id_classe ?>">Vidéos et feedback</a></li>
+          <li><a href="classe-detail.php?page2=quizz&id_classe=<?= $id_classe ?>">Quizz</a></li>
         </ul>
-        
       </div>
 
+      <!-- Right part: Contenu -->
       <div class="right-part">
-        <!-- Supprimer une classe -->
-        <form action="/Memoire/actions/deleteClass.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette classe ?');">
-          <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
-          <button type="submit" name="supprimer">Supprimer la classe</button>
-        </form>
-        <!-- Modifier une classe -->
+        <?php
+          $page2 = $_GET['page2'] ?? 'ma-classe'; // ma_classe par défaut
 
-        <!-- ========= Formulaire pour modifier une classe ========= --> 
-        <div class="ajout-classe-form flex-centered" id="ajout-classe-form">
-          <form action="../actions/createClass.php" method="post" class="form flex-centered">
-          <!-- Header du formulaire -->
-          <div class="header space-between">
-            <div class="left-part">
-              <img src="../assets/img/class-scene-black.svg">
-              <h3>Ajouter une classe</h3>
-            </div>
-            <button type="button" onclick="afficherFormulaireClasse()" class="close-button"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <!-- Le formulaire -->
-          <div class="input-container">
-            <label for="nom_classe">Nom de votre classe</label>
-            <p>Ce nom est celui que vous et vos élèves verront</p>
-            <input type="text" name="nom_classe" placeholder="Ex: Analyse mathématique - Section B " required>
-    
-            <label for="id_departement">Département</label>
-            <p>Choisissez l'un de ces départements</p>
-            <select name="id_departement" class="form-select" required>
-            <?php 
-              $departement = $conn->query("SELECT * FROM departements");
+          $id_classe = isset($_GET['id_classe']) ? (int)$_GET['id_classe'] : null;
 
-              foreach ($departement as $row) {
-                echo "<option value='" . $row['id_departement'] . "'>" . $row['nom_departement'] . "</option>";
-              }
-            ?>
-            </select>
+          if (!$id_classe) {
+              echo "<p>Erreur : identifiant de la classe manquant ou invalide.</p>";
+              exit;
+          }
+          // Toujours charger les détails de la classe pour toutes les pages incluses
+          $sql = "SELECT classes.nom_classe AS nom_classe, 
+                  departements.nom_departement AS nom_departement,
+                  niveaux.nom_niveau AS nom_niveau, classes.module, 
+                  utilisateurs.nom AS nom_enseignant, 
+                  utilisateurs.prenom AS prenom_enseignant
+                  FROM classes
+                  JOIN niveaux ON classes.id_niveau = niveaux.id_niveau 
+                  JOIN departements ON classes.id_departement = departements.id_departement
+                  JOIN utilisateurs ON classes.id_enseignant = utilisateurs.id
+                  WHERE classes.id_classe = :id_classe";
 
-            <label for="id_niveau">Niveau</label>
-            <p>Choisissez le niveau enseigné dans cette classe</p>
-            <select name="id_niveau" class="form-select" required>
-            <?php 
-              $niveau = $conn->query("SELECT * FROM niveaux");
-
-              foreach ($niveau as $row) {
-                echo "<option value='" . $row['id_niveau'] . "'>" . $row['nom_niveau'] . "</option>";
-              }
-            ?>
-            </select>
-
-            <label for="module">Matière (Ou contenu pédagogique)</label>
-            <p>Ex: Mathématique ou Les verbes du 1er groupe</p>
-            <input type="text" name="module" placeholder="Ex: Mathématique" required>
-
-            <div class="btn-container">
-              <button type="submit" name="submit">Ajouter la classe</button>
-            </div>
-
-    </div>
-</form>
-</div>
+          $stmt = $conn->prepare($sql);
+          $stmt->bindParam(':id_classe', $id_classe, PDO::PARAM_INT);
+          $stmt->execute();
+          $classe = $stmt->fetch(PDO::FETCH_ASSOC);
+          
+          // Sécurité : si la classe n’existe pas
+          if (!$classe) {
+            echo "<p>Classe introuvable.</p>";
+            exit;
+          }
+          // Afficher la page correspondante
+          switch ($page2) {
+            case 'eleves':
+              include 'eleves.php';
+              break;
+            case 'supports':
+              include 'supports.php';
+              break;
+            case 'quizz':
+              include 'quizz.php';
+              break;
+            case 'ma-classe':
+            default:
+              include 'ma-classe.php';
+              break;
+          }
+        ?>
       </div>
-</section>
+    </section>
   </div>
 </body>

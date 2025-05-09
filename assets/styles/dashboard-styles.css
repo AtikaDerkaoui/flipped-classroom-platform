@@ -249,10 +249,14 @@
     height: 2rem;
 }
 .ajout-classe-form .input-container input, .ajout-classe-form .input-container select{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 .ajout-classe-form .input-container label, .ajout-classe-form .input-container p{
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+.ajout-classe-form .input-container .modifier-classe{
+    font-size: 9pt;
+    color: rgb(150, 25, 25);
 }
 .ajout-classe-form .input-container .form-select{
     width: 100%;
@@ -275,7 +279,7 @@
 .ajout-classe-form .input-container .btn-container{
     width: 100%;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 

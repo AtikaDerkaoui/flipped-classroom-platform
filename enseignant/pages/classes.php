@@ -31,6 +31,7 @@ $classes = $stmt->fetchAll();
 
 
 <section class="classes-container">
+    <!-- ======= Affichage des classes créées ======= -->
     <?php count($classes) ?>
     <?php if (count($classes) > 0): ?>
         
@@ -58,4 +59,8 @@ $classes = $stmt->fetchAll();
         <p>Aucune classe créée pour le moment.</p>
     <?php endif; ?>
 
-
+    <!-- ======= Formulaire pour créer une classe ======= -->
+    <?php
+        require_once(__DIR__.'/../../includes/createClass-form.php');
+    ?>
+</section>
