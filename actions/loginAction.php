@@ -15,12 +15,16 @@ if (isset($_POST['submit'])) {
     $stmt->execute();
     $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
     if ($utilisateur && password_verify($mot_de_passe, $utilisateur['mot_de_passe'])) {
         // Si le mot de passe est correct, on crée une session pour l'utilisateur
         $_SESSION['user_id'] = $utilisateur['id'];
         $_SESSION['nom'] = $utilisateur['nom'];
         $_SESSION['prenom'] = $utilisateur['prenom'];
         $_SESSION['role'] = $utilisateur['role'];
+        $_SESSION['id_niveau'] = $utilisateur['id_niveau'];
+        $_SESSION['id_departement'] = $utilisateur['id_departement'];
+
 
         // Redirige l'utilisateur vers le tableau de bord
         if($_SESSION['role'] == 'eleve'){

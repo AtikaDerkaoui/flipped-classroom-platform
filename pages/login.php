@@ -7,7 +7,7 @@
     if ($_SESSION['role'] == 'enseignant') {
       header("Location: ../enseignant/dashboard.php");
       exit();  // Toujours appeler exit après header
-    } elseif ($_SESSION['role'] == 'etudiant') {
+    } elseif ($_SESSION['role'] == 'eleve') {
       header("Location: ../eleve/dashboard.php");
       exit();
     }

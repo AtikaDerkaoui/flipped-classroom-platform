@@ -192,7 +192,7 @@ button{
 .register-container{
   background-color: var(--white);
   padding: 0px 5vw;
-  height: 85vh;
+  height: 85vh; /* 85vh */
   margin-top: 15vh;
 }
 /* LEFT PART */
@@ -259,6 +259,51 @@ button{
   font-size: 16px;
 }
 
+/* STUDENT FIELD */
+.student-field{
+  background-color: rgba(24, 24, 24, 0.76);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+}
+.student-field-container{
+  background-color: var(--clearer_blue);
+  width: 40vw;
+  min-height: 40vh;
+  height: fit-content;
+  border-radius: 20px;
+  padding: 3rem 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--black_soft);
+  position: relative;
+}
+.student-field-container label{
+  font-weight: bold;
+  float: left
+}
+.student-field-container select{
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  height: 2rem;
+}
+.student-field-container .btn{
+  align-self: center;
+  background-color: var(--blue) !important; 
+  color: var(--white)
+}
+.student-field-container .btn:hover{
+  background-color: #00648b !important; 
+}
+.student-field-container .close-button{
+  position: absolute;
+  top: 1rem;
+  right: 1rem
+}
 /* ================================================= */
 /* =============== INDEX: PRINCIPAL SECTION =============== */
 /* ================================================= */

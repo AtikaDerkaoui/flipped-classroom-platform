@@ -69,6 +69,7 @@
     height: 100%;
     width: 100%;
     padding-left: 2vw;
+    transition: 5ms ease !important;
 }
 .dashboard > .left-part ul li:hover a{
     color: var(--blue);

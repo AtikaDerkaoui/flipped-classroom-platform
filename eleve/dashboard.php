@@ -31,17 +31,20 @@ require_once(__DIR__.'/../includes/head.php');
       <section class="dashboard space-between">
         <div class="left-part">
           <ul class="flex-centered">
-            <li><a href="dashboard.php?page=accueil">Votre classe</a></li>
-            <li><a href="dashboard.php?page=accueil">Cours extérieurs</a></li>
+            <li><a href="dashboard.php?page=classes">Toutes les classes</a></li>
+            <li><a href="dashboard.php?page=classes">Mes classes</a></li>
+            <li><a href="dashboard.php?page=cours_ext">Cours extérieurs</a></li>
+
             <hr>
-            <li><a href="dashboard.php?page=accueil">Le forum</a></li>
+            <li><a href="dashboard.php?page=forum">Le forum</a></li>
+
             <hr>
-            <li><a href="dashboard.php?page=accueil">Guide d'utilisation</a></li>
-            <li><a href="dashboard.php?page=accueil">Aide et conseils</a></li>
+            <li><a href="dashboard.php?page=guide">Guide d'utilisation</a></li>
+            <li><a href="dashboard.php?page=aide">Aide et conseils</a></li>
           </ul>
         </div>
 
-        <div class="right-part flex-centered">
+        <div class="right-part">
         <?php 
           // Récupérer la page depuis l’URL
           $page = $_GET['page'] ?? 'accueil';
@@ -51,12 +54,18 @@ require_once(__DIR__.'/../includes/head.php');
     case 'classes':
         include('pages/classes.php');
         break;
-    case 'eleves':
-        include('pages/eleves.php');
+    case 'cours_ext':
+        include('pages/accueil.php');
         break;
-    case 'cours':
-        include('pages/cours_ext.php');
+    case 'forum':
+        include('pages/accueil.php');
         break;
+    case 'guide':
+        include('pages/accueil.php');
+        break;  
+    case 'aide':
+        include('pages/accueil.php');
+        break;  
     case 'accueil':
     default:
         include('pages/accueil.php');

@@ -45,27 +45,64 @@
     
             <form action="../actions/registerAction.php" method="post" class="form">
                 <div class="flex-row">
+                    <!-- Nom -->
                     <div class="input-container">
                         <label for="nom">Nom</label>
                         <input type="text" name="nom" placeholder="Nom" required>
                     </div>
+                    <!-- Prenom -->
                     <div class="input-container">
                         <label for="prenom">Prenom</label>
                         <input type="text" name="prenom" placeholder="Prenom" required>
                     </div>
                 </div>
+                <!-- Email -->
                 <label for="email" >Votre email</label>
                 <input type="email" name="email" placeholder="exemple@gmail.com" required>
-        
+                <!-- Mot de passe -->
                 <label for="mot_de_passe">Mot de passe</label>
                 <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
-        
+                <!-- Role -->
                 <label for="role">Votre rôle</label>
-                <select name="role" class="select-role form-select" required>
+                <select name="role" class="select-role form-select" required onchange="toggleStudent(this.value)">
                     <option value="enseignant">Je suis un enseignant</option>
                     <option value="eleve">Je suis un élève</option>
                 </select>
-        
+
+
+                <!-- S'affiche seulement quand role = eleve -->
+                <div class="student-field flex-centered" id="student-field" style="display: none;">
+                    <div class="student-field-container form">
+                    <!-- Niveau d'élève -->
+                    <label for="id_niveau">Votre niveau :</label>
+                    <select name="id_niveau" class="form-select">
+                        <option value="">-- Choisir un niveau --</option>
+                        <?php
+                        require_once '../connexion.php';
+                        $stmt = $conn->query("SELECT id_niveau, nom_niveau FROM niveaux");
+                        while ($row = $stmt->fetch()) {
+                            echo "<option value='{$row['id_niveau']}'>{$row['nom_niveau']}</option>";
+                        }
+                        ?>
+                    </select>
+                    <!-- Département d'élève -->
+                    <label for="id_departement">Votre département :</label>
+                    <select name="id_departement" class="form-select">
+                        <option value="">-- Choisir un déparement --</option>
+                        <?php
+                        require_once '../connexion.php';
+                        $stmt = $conn->query("SELECT id_departement, nom_departement FROM departements");
+                        while ($row = $stmt->fetch()) {
+                            echo "<option value='{$row['id_departement']}'>{$row['nom_departement']}</option>";
+                        }
+                        ?>
+                    </select>
+
+                    <button type="button" class="btn" onclick="toggleStudent('eleve-n')">Confirmer</button>
+                    <button class="close-button" onclick="toggleStudent('eleve-n')"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
                 <button type="submit" name="submit" class="btn">S'inscrire</button>
             </form>
         </div>
