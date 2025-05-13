@@ -48,6 +48,11 @@
         <p>Ex: Mathématique ou Les verbes du 1er groupe</p>
         <input type="text" name="module" placeholder="Ex: Mathématique" required>
 
+        <!-- Code de la classe -->
+        <label for="code_classe">Code de la classe</label>
+        <p>C'est le code que vos élèves doivent entrer pour rejoindre la classe, il doit être unique.</p>
+        <input type="text" name="code_classe" placeholder="Ex: AMX586" required>
+
         <!-- Submit -->
         <div class="btn-container">
             <button type="submit" name="submit">Ajouter la classe</button>

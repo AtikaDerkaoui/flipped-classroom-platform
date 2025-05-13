@@ -69,11 +69,17 @@
     height: 100%;
     width: 100%;
     padding-left: 2vw;
-    transition: 5ms ease !important;
+    transition: 0.3s ease !important;
+}
+.dashboard > .left-part ul li a.active{
+    color: var(--blue);
+    font-weight: bold;
+    transform: translateX(0.5rem);
 }
 .dashboard > .left-part ul li:hover a{
     color: var(--blue);
     font-weight: bold;
+    transform: translateX(0.5rem);
 }
 .dashboard > .left-part ul hr{
     margin: 1.5rem 0px;

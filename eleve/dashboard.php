@@ -5,6 +5,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'eleve') {
     exit();
 }
 
+$page = $_GET['page'] ?? ''; // page actuelle
+
 // Le head
 $titre = "DzDucation - Bienvenue"; // titre de la page
 require_once(__DIR__.'/../includes/head.php');
@@ -31,16 +33,16 @@ require_once(__DIR__.'/../includes/head.php');
       <section class="dashboard space-between">
         <div class="left-part">
           <ul class="flex-centered">
-            <li><a href="dashboard.php?page=classes">Toutes les classes</a></li>
-            <li><a href="dashboard.php?page=classes">Mes classes</a></li>
-            <li><a href="dashboard.php?page=cours_ext">Cours extérieurs</a></li>
+            <li><a href="dashboard.php?page=classes" class="<?= $page == 'classes' ? 'active' : '' ?>">Toutes les classes</a></li>
+            <li><a href="dashboard.php?page=classes-inscrites" class="<?= $page == 'classes-inscrites' ? 'active' : '' ?>">Mes classes</a></li>
+            <li><a href="dashboard.php?page=cours_ext" class="<?= $page == 'cours_ext' ? 'active' : '' ?>">Cours extérieurs</a></li>
 
             <hr>
-            <li><a href="dashboard.php?page=forum">Le forum</a></li>
+            <li><a href="dashboard.php?page=forum" class="<?= $page == 'forum' ? 'active' : '' ?>">Le forum</a></li>
 
             <hr>
-            <li><a href="dashboard.php?page=guide">Guide d'utilisation</a></li>
-            <li><a href="dashboard.php?page=aide">Aide et conseils</a></li>
+            <li><a href="dashboard.php?page=guide" class="<?= $page == 'guide' ? 'active' : '' ?>">Guide d'utilisation</a></li>
+            <li><a href="dashboard.php?page=aide" class="<?= $page == 'aide' ? 'active' : '' ?>">Aide et conseils</a></li>
           </ul>
         </div>
 
@@ -53,6 +55,9 @@ require_once(__DIR__.'/../includes/head.php');
           switch ($page) {
     case 'classes':
         include('pages/classes.php');
+        break;
+    case 'classes-inscrites':
+        include('pages/classes-inscrites.php');
         break;
     case 'cours_ext':
         include('pages/accueil.php');

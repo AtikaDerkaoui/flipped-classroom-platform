@@ -6,6 +6,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'eleve') {
     exit();
 }
 
+$page2 = $_GET['page2'] ?? ''; // page actuelle
+
 // Le head
 $titre = "DzDucation - Bienvenue"; // titre de la page
 require_once(__DIR__.'/../../includes/head.php');
@@ -46,11 +48,7 @@ $supports = $stmt_supports->fetchAll();
   <div class="dashboard-container">
     <!-- ============= Navbar de bienvenu ============= -->
     <section class="bienvenu-navbar space-between">
-        <h3 class="left-part">Bienvenue
-          <?php
-            echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] ;  
-          ?>
-        </h3>
+        <h3 class="left-part"><a href="javascript:history.back()"><- Retour</a></h3>
       
         <h3><a href="#" class="right-part">Guide d'utilisation</a></h3>
     </section>
@@ -60,17 +58,17 @@ $supports = $stmt_supports->fetchAll();
       <!-- Left part: Side Navbar -->
       <div class="left-part">
         <ul class="flex-centered">
-          <li><a href="classe-detail.php?page2=ma-classe&id_classe=<?= $id_classe ?>">La classe</a></li>
-          <li><a href="classe-detail.php?page2=supports&id_classe=<?= $id_classe ?>">Supports pédagogiques</a></li>
-          <li><a href="classe-detail.php?page2=videos&id_classe=<?= $id_classe ?>">Vidéos et feedback</a></li>
-          <li><a href="classe-detail.php?page2=quizz&id_classe=<?= $id_classe ?>">Quizz</a></li>
+          <li><a href="classe-detail.php?page2=ma-classe&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'ma-classe' ? 'active' : '' ?>">La classe</a></li>
+          <li><a href="classe-detail.php?page2=supports&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'supports' ? 'active' : '' ?>">Supports pédagogiques</a></li>
+          <li><a href="classe-detail.php?page2=videos&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'videos' ? 'active' : '' ?>">Vidéos et feedback</a></li>
+          <li><a href="classe-detail.php?page2=quizz&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
 
           <hr>
-          <li><a href="dashboard.php?page=forum">Le forum</a></li>
+          <li><a href="dashboard.php?page=forum" class="<?= $page2 == 'forum' ? 'active' : '' ?>">Le forum</a></li>
 
           <hr>
-          <li><a href="dashboard.php?page=guide">Guide d'utilisation</a></li>
-          <li><a href="dashboard.php?page=aide">Aide et conseils</a></li>
+          <li><a href="dashboard.php?page=guide" class="<?= $page2 == 'guide' ? 'active' : '' ?>">Guide d'utilisation</a></li>
+          <li><a href="dashboard.php?page=aide" class="<?= $page2 == 'aide' ? 'active' : '' ?>">Aide et conseils</a></li>
         </ul>
       </div>
 
@@ -109,14 +107,14 @@ $supports = $stmt_supports->fetchAll();
           }
           // Afficher la page correspondante
           switch ($page2) {
-            case 'eleves':
-              include 'eleves.php';
-              break;
             case 'supports':
               include 'supports.php';
               break;
+            case 'videos':
+              include 'ma-classe.php';
+              break;
             case 'quizz':
-              include 'quizz.php';
+              include 'ma-classe.php';
               break;
             case 'ma-classe':
             default:
