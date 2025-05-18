@@ -7,7 +7,7 @@
             <img src="../assets/img/class-scene-black.svg">
             <h3>Ajouter une classe</h3>
         </div>
-        <button type="button" onclick="afficherFormulaireClasse()" class="close-button"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" id="btn-fermer-ajout-classe" class="close-button"><i class="fa-solid fa-xmark"></i></button>
     </div>
     
     <!-- Le formulaire -->

@@ -39,7 +39,7 @@ $classes = $stmt->fetchAll();
     <?php if (count($classes) > 0): ?>
         
         <?php foreach ($classes as $classe): ?>
-            <div class="classe space-between" onclick="window.location.href='pages/classe-detail.php?id_classe=<?= $classe['id_classe'] ?>'" title="Consulter la classe">
+            <div class="classe space-between" onclick="window.location.href='pages/classe.php?page2=classe-details&id_classe=<?= $classe['id_classe'] ?>'" title="Consulter la classe">
 
                 <div class="left-part flex-start">
                     <img src="../assets/img/class-scene-blue.png" alt="classe-pic">

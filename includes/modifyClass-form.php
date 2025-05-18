@@ -1,5 +1,5 @@
 <!-- ========= Formulaire pour ajouter une classe ========= --> 
-<div class="ajout-classe-form flex-centered" id="ajout-classe-form">
+<div class="ajout-classe-form flex-centered" id="modifier-classe-form">
  <form action="../../actions/modifyClass.php" method="post" class="form flex-centered">
     <!-- Header du formulaire -->
     <div class="header space-between">
@@ -8,7 +8,7 @@
             <h3>Modifier la classe</h3>
         </div>
 
-        <button type="button" onclick="afficherFormulaireClasse()" class="close-button"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" id="btn-fermer-classe" class="close-button"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
     <!-- Le formulaire -->
@@ -48,6 +48,11 @@
         <label for="module">Matière (Ou contenu pédagogique)</label>
         <p>Ex: Mathématique ou Les verbes du 1er groupe</p>
         <input type="text" name="module" value="<?= $classe['module'] ?>" placeholder="Ex: Mathématique" required>
+
+         <!-- Code de la classe -->
+        <label for="code_classe">Code de la classe</label>
+        <p>C'est le code que vos élèves doivent entrer pour rejoindre la classe, il doit être unique.</p>
+        <input type="text" name="code_classe" value="<?= $classe['code_classe'] ?>" placeholder="Ex: AMX586" required>
 
         <div class="btn-container">
             <button type="submit" name="modifier">Modifier la classe</button>

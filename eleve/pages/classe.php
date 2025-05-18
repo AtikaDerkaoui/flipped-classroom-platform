@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'enseignant') {
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'eleve') {
     header("Location: ../../pages/login.php");
     exit();
 }
+
 $page2 = $_GET['page2'] ?? ''; // page actuelle
 
 // Le head
@@ -17,9 +18,7 @@ require_once '../../connexion.php';
 $id_classe = $_GET['id_classe'];
 $sql = "SELECT classes.nom_classe AS nom_classe, 
         departements.nom_departement AS nom_departement,
-        niveaux.nom_niveau AS nom_niveau, 
-        classes.module, 
-        classes.code_classe,
+        niveaux.nom_niveau AS nom_niveau, classes.module, 
         utilisateurs.nom AS nom_enseignant, 
         utilisateurs.prenom AS prenom_enseignant
         FROM classes
@@ -49,7 +48,7 @@ $supports = $stmt_supports->fetchAll();
   <div class="dashboard-container">
     <!-- ============= Navbar de bienvenu ============= -->
     <section class="bienvenu-navbar space-between">
-        <h3 class="left-part"><a href="javascript:history.back()"><- Retour</a></h3>
+        <h3 class="left-part"><a href="javascript:history.back()">Retour</a></h3>
       
         <h3><a href="#" class="right-part">Guide d'utilisation</a></h3>
     </section>
@@ -59,18 +58,24 @@ $supports = $stmt_supports->fetchAll();
       <!-- Left part: Side Navbar -->
       <div class="left-part">
         <ul class="flex-centered">
-          <li><a href="classe-detail.php?page2=ma-classe&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'ma-classe' ? 'active' : '' ?>">Ma classe</a></li>
-          <li><a href="classe-detail.php?page2=eleves&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'eleves' ? 'active' : '' ?>">Elèves</a></li>
-          <li><a href="classe-detail.php?page2=supports&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'supports' ? 'active' : '' ?>">Supports pédagogiques</a></li>
-          <li><a href="classe-detail.php?page2=videos&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'videos' ? 'active' : '' ?>">Vidéos et feedback</a></li>
-          <li><a href="classe-detail.php?page2=quizz&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
+          <li><a href="classe.php?page2=classe-details&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'classe-details' ? 'active' : '' ?>">La classe</a></li>
+          <li><a href="classe.php?page2=supports&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'supports' ? 'active' : '' ?>">Supports pédagogiques</a></li>
+          <li><a href="classe.php?page2=videos&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'videos' ? 'active' : '' ?>">Vidéos et feedback</a></li>
+          <li><a href="classe.php?page2=quizz&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
+
+          <hr>
+          <li><a href="dashboard.php?page=forum" class="<?= $page2 == 'forum' ? 'active' : '' ?>">Le forum</a></li>
+
+          <hr>
+          <li><a href="dashboard.php?page=guide" class="<?= $page2 == 'guide' ? 'active' : '' ?>">Guide d'utilisation</a></li>
+          <li><a href="dashboard.php?page=aide" class="<?= $page2 == 'aide' ? 'active' : '' ?>">Aide et conseils</a></li>
         </ul>
       </div>
 
       <!-- Right part: Contenu -->
       <div class="right-part">
         <?php
-          $page2 = $_GET['page2'] ?? 'ma-classe'; // ma_classe par défaut
+          $page2 = $_GET['page2'] ?? 'classe-details'; // classe-details par défaut
 
           $id_classe = isset($_GET['id_classe']) ? (int)$_GET['id_classe'] : null;
 
@@ -83,7 +88,7 @@ $supports = $stmt_supports->fetchAll();
                   departements.nom_departement AS nom_departement,
                   niveaux.nom_niveau AS nom_niveau, 
                   classes.module, 
-                  classes.code_classe,
+                  classes.id_classe,
                   utilisateurs.nom AS nom_enseignant, 
                   utilisateurs.prenom AS prenom_enseignant
                   FROM classes
@@ -104,18 +109,18 @@ $supports = $stmt_supports->fetchAll();
           }
           // Afficher la page correspondante
           switch ($page2) {
-            case 'eleves':
-              include 'eleves.php';
-              break;
             case 'supports':
               include 'supports.php';
               break;
-            case 'quizz':
-              include 'quizz.php';
+            case 'videos':
+              include 'classe-details.php';
               break;
-            case 'ma-classe':
+            case 'quizz':
+              include 'classe-details.php';
+              break;
+            case 'classe-details':
             default:
-              include 'ma-classe.php';
+              include 'classe-details.php';
               break;
           }
         ?>

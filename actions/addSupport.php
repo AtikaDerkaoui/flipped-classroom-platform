@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindParam(':id_classe', $id_classe);
         $stmt->execute();
 
-        header("Location: ../enseignant/pages/classe-detail.php?page2=supports&id_classe=$id_classe");
+        header("Location: ../enseignant/pages/classe.php?page2=supports&id_classe=$id_classe");
         exit;
     } else {
         echo "Erreur lors de l’upload du fichier.";

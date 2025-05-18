@@ -5,7 +5,8 @@
 </form>
 
 <!-- Modifier la classe -->
-<p><button onclick="afficherFormulaireClasse()">Modifier la classe</button></p>
+<p><button id="btn-modifier-classe">Modifier la classe</button></p>
+<!-- Appel au formulaire de modification de la classe -->
 <?php
     require_once(__DIR__.'/../../includes/modifyClass-form.php');
 ?>
@@ -22,3 +23,19 @@
 <p><strong>Enseignant: </strong><?= htmlspecialchars($classe['nom_enseignant'])?> <?=htmlspecialchars($classe['prenom_enseignant']) ?></p>
         
 <p><strong>Nombre d'élèves inscrits dans la classe: ??</strong></p>
+
+
+<!-- =========== JAVASCRIPT =========== -->
+<script>
+// Bouton pour afficher le formulaire de modification d'une classe
+// =============================================================
+document.getElementById("btn-modifier-classe").addEventListener("click", function () {
+    document.getElementById("modifier-classe-form").classList.toggle('show');
+});
+
+// Bouton pour fermer le formulaire de modification d'une classe
+// =============================================================
+document.getElementById("btn-fermer-classe").addEventListener("click", function () {
+    document.getElementById("modifier-classe-form").classList.remove('show');
+});
+</script>

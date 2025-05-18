@@ -26,7 +26,7 @@ $classes = $stmt->fetchAll();
 <div class="classes">
 <section class="ajout-classe space-between">
     <p style="font-weight: bold">Mes classes</p>
-    <p>Ajouter une classe <button onclick="afficherFormulaireClasse()"><i class="fa-solid fa-plus"></i></button></p>
+    <p>Ajouter une classe <button id="btn-ajout-classe"><i class="fa-solid fa-plus"></i></button></p>
 </section>
 
 
@@ -36,7 +36,7 @@ $classes = $stmt->fetchAll();
     <?php if (count($classes) > 0): ?>
         
         <?php foreach ($classes as $classe): ?>
-            <div class="classe space-between" onclick="window.location.href='pages/classe-detail.php?id_classe=<?= $classe['id_classe'] ?>'" title="Consulter la classe">
+            <div class="classe space-between" onclick="window.location.href='pages/classe.php?page2=classe-details&id_classe=<?= $classe['id_classe'] ?>'" title="Consulter la classe">
 
                 <div class="left-part flex-start">
                     <img src="../assets/img/class-scene-blue.png" alt="classe-pic">
@@ -64,3 +64,21 @@ $classes = $stmt->fetchAll();
         require_once(__DIR__.'/../../includes/createClass-form.php');
     ?>
 </section>
+
+<script>
+// ============================================================
+// Bouton pour afficher le formulaire de création d'une classe
+// ============================================================
+document.getElementById("btn-ajout-classe").addEventListener("click", function () {
+    console.log("hello ajout");
+    document.getElementById("ajout-classe-form").classList.toggle('show');
+});
+
+
+// =========================================================
+// Bouton pour fermer le formulaire de création d'une classe
+// =========================================================
+document.getElementById("btn-fermer-ajout-classe").addEventListener("click", function () {
+    document.getElementById("ajout-classe-form").classList.toggle('show');
+});
+</script>

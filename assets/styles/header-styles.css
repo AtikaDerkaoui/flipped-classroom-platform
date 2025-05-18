@@ -23,7 +23,6 @@
   }
   .nav-links > li {
     padding: 0.5rem 1rem;
-    cursor: pointer
   }
   .nav-links li a {
     text-decoration: none;
@@ -60,7 +59,6 @@
     padding: 1rem 1rem !important;
     border-bottom: 1px solid var(--white);
     margin: 0 10px;
-    cursor: pointer;
   }
   .nav-links .dropdown li a{
     color: var(--black_soft);
@@ -90,7 +88,7 @@
     transform: translateX(-80%);
     border-radius: 0% !important;
     z-index: 99999 !important;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   }
   .nav-links .ressources .dropdown ul:first-child{

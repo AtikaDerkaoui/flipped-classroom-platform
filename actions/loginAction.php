@@ -21,6 +21,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['user_id'] = $utilisateur['id'];
         $_SESSION['nom'] = $utilisateur['nom'];
         $_SESSION['prenom'] = $utilisateur['prenom'];
+        $_SESSION['email'] = $utilisateur['email'];
         $_SESSION['role'] = $utilisateur['role'];
         $_SESSION['id_niveau'] = $utilisateur['id_niveau'];
         $_SESSION['id_departement'] = $utilisateur['id_departement'];

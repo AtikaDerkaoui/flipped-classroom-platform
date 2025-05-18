@@ -108,4 +108,10 @@
         </div>
     </div>
 </body>
+<script>
+    /* Inscription utilisateur: si role = eleve, il doit choisir son niveau */
+function toggleStudent(role) {
+    document.getElementById('student-field').style.display = (role === 'eleve') ? 'flex' : 'none';
+}
+</script>
 </html>

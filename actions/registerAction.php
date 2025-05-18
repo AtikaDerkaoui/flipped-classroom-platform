@@ -10,8 +10,9 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $mot_de_passe = $_POST['mot_de_passe'];
     $role = $_POST['role'];
-    $id_niveau = $_POST['id_niveau'];
-    $id_departement = $_POST['id_departement'];
+
+    $id_departement = !empty($_POST['id_departement']) ? $_POST['id_departement'] : null;
+    $id_niveau = !empty($_POST['id_niveau']) ? $_POST['id_niveau'] : null;
 
 
     // Vérification que l'email est valide
