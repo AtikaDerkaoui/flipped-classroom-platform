@@ -27,7 +27,10 @@
             $departement = $conn->query("SELECT * FROM departements");
 
             foreach ($departement as $row) {
-                echo "<option value='" . $row['id_departement'] . "'>" . $row['nom_departement'] . "</option>";
+                $selected = ($row['id_departement'] == $id_departement_actuel) ? "selected" : "";
+                //echo "<option value='" . $row['id_departement'] . "'>" . $row['nom_departement'] . "</option>";
+                echo "<option value='{$row['id_departement']}' $selected>{$row['nom_departement']}</option>";
+
             }
         ?>
         </select>
