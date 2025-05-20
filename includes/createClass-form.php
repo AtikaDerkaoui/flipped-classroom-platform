@@ -50,7 +50,7 @@
 
         <!-- Code de la classe -->
         <label for="code_classe">Code de la classe</label>
-        <p>C'est le code que vos élèves doivent entrer pour rejoindre la classe, il doit être unique.</p>
+        <p>C'est le code que vos élèves doivent entrer pour rejoindre votre classe, il doit être unique.</p>
         <input type="text" name="code_classe" placeholder="Ex: AMX586" required>
 
         <!-- Submit -->

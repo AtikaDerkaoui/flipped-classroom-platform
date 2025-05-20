@@ -34,7 +34,7 @@ $classes = $stmt->fetchAll();
     </section>
 
     <section class="classes-container">
-        <!-- ======= Affichage des classes disponible ======= -->
+    <!-- ======= Affichage des classes disponible ======= -->
     <?php count($classes) ?>
     <?php if (count($classes) > 0): ?>
         
@@ -48,7 +48,6 @@ $classes = $stmt->fetchAll();
                         <h4><?= htmlspecialchars($classe['nom_classe']) ?></h4>
                         <div>
                             <h6><?= htmlspecialchars($classe['nom_niveau']) ?></h6>
-                            <h6>Nombre d'élèves: ?</h6>
                         </div>
                     </div>
                 </div>

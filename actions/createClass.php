@@ -10,6 +10,16 @@ if (isset($_POST['submit'])) {
     $module = $_POST['module'];
     $code_classe = $_POST['code_classe'];
 
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM classes WHERE code_classe = :code_classe");
+    $stmt->execute([':code_classe' => $code_classe]);
+    $code_exists = $stmt->fetchColumn();
+
+    if ($code_exists > 0) {
+        $_SESSION['erreur_code'] = "Oups ! Ce code est déjà utilisé pour une autre classe.";
+        header("Location: ../enseignant/dashboard.php?page=classes");
+        exit;
+    }
+
     // id_enseignant
     $id_enseignant = $_SESSION['user_id'];
 

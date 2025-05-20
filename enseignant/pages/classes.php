@@ -29,7 +29,12 @@ $classes = $stmt->fetchAll();
     <p>Ajouter une classe <button id="btn-ajout-classe"><i class="fa-solid fa-plus"></i></button></p>
 </section>
 
-
+<?php
+if (isset($_SESSION['erreur_code'])) {
+    echo "<script>alert('{$_SESSION['erreur_code']}');</script>";
+    unset($_SESSION['erreur_code']); // Supprimer le message après l'affichage
+}
+?>
 <section class="classes-container">
     <!-- ======= Affichage des classes créées ======= -->
     <?php count($classes) ?>
@@ -45,7 +50,6 @@ $classes = $stmt->fetchAll();
                         <h4><?= htmlspecialchars($classe['nom_classe']) ?></h4>
                         <div>
                             <h6><?= htmlspecialchars($classe['nom_niveau']) ?></h6>
-                            <h6>Nombre d'élèves: ?</h6>
                         </div>
                     </div>
                 </div>

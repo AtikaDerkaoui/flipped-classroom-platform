@@ -8,11 +8,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'enseignant') {
 // ================= Head =================
 $titre = "DzDucation - Mon profil"; // titre de la page
 require_once(__DIR__.'/../includes/head.php');
-
-
-// ================= SESSION =================
 ?>
-
 
 <body>
 <?php require_once(__DIR__.'/../includes/header-enseignant.php');
@@ -71,6 +67,14 @@ require_once(__DIR__.'/../includes/head.php');
             <h4>Prénom : <span><?php echo $_SESSION['prenom']; ?></span></h4>
             <h4>Email : <span><?php echo $_SESSION['email']; ?></span></h4>
             <h4>Role : <span><?php echo $_SESSION['role']; ?></span></h4>
+
+            <br><hr><br>
+            <form action="../actions/deleteAccount.php" method="post" class="form" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.');">
+                <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
+
+                <button type="submit" name="supprimer-compte">Supprimer le compte</button>
+                <p>Attention ! votre compte sera supprimé définitivement.</p>
+            </form>
             <?php break;
         }
         ?>

@@ -36,11 +36,7 @@ $page = $_GET['page'] ?? ''; // page actuelle
       <div class="left-part">
         <ul>
           <li><a href="dashboard.php?page=classes" class="<?= $page == 'classes' ? 'active' : '' ?>">Classes</a></li>
-          <li><a href="dashboard.php?page=modules" class="<?= $page == 'modules' ? 'active' : '' ?>">Modules</a></li>
-          <li><a href="dashboard.php?page=niveaux" class="<?= $page == 'niveaux' ? 'active' : '' ?>">Niveaux</a></li>
-          <li><a href="dashboard.php?page=supports-pedagogiques" class="<?= $page == 'supports-pedagogiques' ? 'active' : '' ?>">Supports pédagogiques</a></li>
-          <li><a href="dashboard.php?page=capsules" class="<?= $page == 'capsules' ? 'active' : '' ?>">Capsules vidéos</a></li>
-          <li><a href="dashboard.php?page=quizz" class="<?= $page == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
+          <li><a href="dashboard.php?page=cours-ext" class="<?= $page == 'cours-ext' ? 'active' : '' ?>">Cours extérieurs</a></li>
           <hr>
           <li><a href="dashboard.php?page=forum" class="<?= $page == 'forum' ? 'active' : '' ?>">Le forum</a></li>
           <hr>
@@ -60,20 +56,8 @@ $page = $_GET['page'] ?? ''; // page actuelle
     case 'classes':
         include('pages/classes.php');
         break;
-    case 'modules':
-        include('pages/accueil.php');
-        break;
-    case 'niveaux':
-        include('pages/accueil.php');
-        break;
-    case 'supports-pedagogiques':
-        include('pages/accueil.php');
-        break;
-    case 'capsules':
-        include('pages/accueil.php');
-        break;
-    case 'quizz':
-        include('pages/accueil.php');
+    case 'cours-ext':
+        include('pages/cours-ext.php');
         break;
     case 'forum':
         include('pages/accueil.php');

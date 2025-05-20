@@ -82,5 +82,4 @@ if (isset($_POST['modifier']) && isset($_SESSION['user_id'])) {
     header("Location: ../enseignant/profil.php?page=modifier-infos");
     exit;
 }
-    
 ?>

@@ -95,6 +95,13 @@ require_once(__DIR__.'/../includes/head.php');
             <h4>Département : <span><?= htmlspecialchars($eleve['nom_departement']) ?></span></h4>
             <h4>Niveau : <span><?= htmlspecialchars($eleve['nom_niveau']) ?></span></h4>
 
+            <br><hr><br>
+            <form action="../actions/deleteAccount.php" method="post" class="form" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.');">
+                <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
+
+                <button type="submit" name="supprimer-compte">Supprimer le compte</button>
+                <p>Attention ! votre compte sera supprimé définitivement.</p>
+            </form>
             <?php break;
         }
         ?>

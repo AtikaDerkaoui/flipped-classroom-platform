@@ -21,14 +21,12 @@
     
         <label for="id_departement">Département</label>
         <p>Choisissez l'un de ces départements</p>
-        <p class="modifier-classe">(Département actuel : <?= htmlspecialchars($classe['nom_departement'])  ?>)</p>
         <select name="id_departement" class="form-select" required>
         <?php 
             $departement = $conn->query("SELECT * FROM departements");
 
             foreach ($departement as $row) {
                 $selected = ($row['id_departement'] == $id_departement_actuel) ? "selected" : "";
-                //echo "<option value='" . $row['id_departement'] . "'>" . $row['nom_departement'] . "</option>";
                 echo "<option value='{$row['id_departement']}' $selected>{$row['nom_departement']}</option>";
 
             }
@@ -37,13 +35,13 @@
 
         <label for="id_niveau">Niveau</label>
         <p>Choisissez le niveau enseigné dans cette classe</p>
-        <p class="modifier-classe">(Niveau actuel : <?= htmlspecialchars($classe['nom_niveau'])  ?>)</p>
         <select name="id_niveau" class="form-select" required>
         <?php 
             $niveau = $conn->query("SELECT * FROM niveaux");
 
             foreach ($niveau as $row) {
-                echo "<option value='" . $row['id_niveau'] . "'>" . $row['nom_niveau'] . "</option>";
+                $selected = ($row['id_niveau'] == $id_niveau_actuel) ? "selected" : "";
+                echo "<option value='{$row['id_niveau']}' $selected>{$row['nom_niveau']}</option>";
             }
         ?>
         </select>
