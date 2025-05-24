@@ -16,6 +16,8 @@
     --blue: #01587A;
     --clear_blue: #5cb3c1;
     --clearer_blue: #99D8DD;
+
+    --clear-green: rgb(109, 194, 141);
   }
 
   /* Logo font */
@@ -113,8 +115,18 @@ button{
 .border{
   border: 3px solid red;
 }
-
-
+.hide{
+  display: none !important;
+}
+.show{
+  display: flex !important;
+}
+.show-block{
+  display: block !important;
+}
+.rotate-180{
+  transform: rotate(180deg);
+}
 /* ================================================ */
 /* =============== ELEMENTS communs =============== */
 /* ================================================ */

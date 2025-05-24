@@ -136,6 +136,9 @@
     margin-bottom: 1.5rem;
     align-items: center;
 }
+.ajout-classe h2{
+    color: var(--blue)
+}
 .ajout-classe button{
     border: 2px solid var(--blue);
     width: 20px;
@@ -198,6 +201,7 @@
 .classes-container .classe > .right-part h4{
     color: var(--yellow)
 }
+
 /* Formulaire pour ajouter une page */
 .ajout-classe-form{
     background-color: rgba(0, 0, 0, 0.521);
@@ -269,6 +273,11 @@
     width: 100%;
     height: 2rem;
 }
+.ajout-classe-form .input-container .btn-container{
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
 .ajout-classe-form .input-container button{
     width: 50%;
     height: 2.8rem;
@@ -278,20 +287,127 @@
     font-family: "Nunito", sans-serif;
     font-size: 14pt;
     color: var(--white);
+    z-index: 9999999;
 }
 .ajout-classe-form .input-container button:hover{
     background-color: var(--blue);
-    width: 60%
-}
-.ajout-classe-form .input-container .btn-container{
-    width: 100%;
-    text-align: center;
-    margin-top: 1rem;
+    width: 60%;
 }
 
 
 /* ================================================= */
-/* =============== MEDIA QUERIES =============== */
+/* ===================== QUIZZ ===================== */
+/* ================================================= */
+.quizz{
+    width: 100%;
+    margin-bottom: 3px;
+    border-radius: 10px;
+}
+.quizz-header{
+    background-color: #b5dfe2;
+    color: var(--blue);
+    align-items: center;
+    padding-left: 2rem;
+    border-radius: 3px;
+    height: 3rem;
+}
+.quizz-header > div{
+    display: flex;
+    height: 100%
+}
+.quizz-header button{
+    background-color: transparent;
+    border: none;
+    font-size: 15pt;
+}
+.quizz-header .delete-quizz-form{
+    display: none;
+}
+.quizz-header .delete-quizz-form button{
+    color: rgb(230, 1, 1);
+    padding: 0px 15px;
+    height: 100%;
+}
+.quizz-header .delete-quizz-form button:hover{
+    background-color:  rgba(230, 1, 1, 0.377);
+}
+.quizz-header .btn-show-quizz{
+    padding: 0px 15px;
+    border-radius: 3px;
+    height: 100%;
+    color: var(--blue);
+}
+.quizz-header .btn-show-quizz:hover{
+    background-color: #01587a5d;
+}
+.quizz-header .fa-circle-question{
+    font-weight: bold;
+    font-size: 15pt;
+    margin-right: 0.5rem;
+}
+.quizz-content{
+    padding: 0.5rem 2rem;
+    margin-top: 1px;
+    background-color: #d5eef0;
+    display:none;
+}
+.quizz-content h4{
+    margin-bottom: 0.8rem;
+}
+.quizz-content p{
+    text-align: right;
+    color: var(--gray)
+}
+.quizz-content span{
+    color: var(--clear_black);
+}
+.quizz-question{
+    border-bottom: 2px solid var(--white);
+    padding: 1.5rem 0px;
+}
+.quizz-content .quizz-reponse{
+    background-color: #e8f8fa;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.233);
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Formulaire: ajouter un quizz */
+.ajout-quizz-form{
+    display: flex !important;
+}
+.ajout-quizz{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 5rem !important
+}
+.ajout-quizz .close-button{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+/* Formulaire: ajouter des questions */
+.ajout-question-form{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.521);
+    display: none;
+}
+.ajout-question-form form{
+    background-color: var(--white);
+    width: 60vw;
+    height: fit-content;
+    padding: 3rem 3rem;
+}
+
+/* ================================================= */
+/* ================= MEDIA QUERIES ================= */
 /* ================================================= */
 @media (max-width: 1280px) {
     /* ====== ENSEIGNANT: Dashboard ====== */

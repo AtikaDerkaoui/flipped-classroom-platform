@@ -25,7 +25,7 @@ $classes = $stmt->fetchAll();
 <!-- ====================================================== --> 
 <div class="classes">
 <section class="ajout-classe space-between">
-    <p style="font-weight: bold">Mes classes</p>
+    <h2>Mes classes</h2>
     <p>Ajouter une classe <button id="btn-ajout-classe"><i class="fa-solid fa-plus"></i></button></p>
 </section>
 

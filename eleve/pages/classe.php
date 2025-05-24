@@ -116,7 +116,7 @@ $supports = $stmt_supports->fetchAll();
               include 'classe-details.php';
               break;
             case 'quizz':
-              include 'classe-details.php';
+              include 'quizz.php';
               break;
             case 'classe-details':
             default:
