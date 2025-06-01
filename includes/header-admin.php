@@ -2,7 +2,7 @@
 <header class="header">
   <nav class="navbar">
         
-    <div class="logo pacifico"><a href="/Memoire/enseignant/dashboard.php">DzDucation <span>Flipped Classroom</span></a></div>
+    <div class="logo pacifico"><a href="/Memoire/admin/dashboard.php">DzDucation <span>Flipped Classroom</span></a></div>
         <ul class="nav-links" id="nav-links">
             <li><a href="#" class="btn">Messagerie</a></li>
             <li class="dropdown-parent ressources">
@@ -55,10 +55,9 @@
               </div>
             </li>
 
-            <li class='dropdown-parent'><a href='/Memoire/enseignant/profil.php'><?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] ; ?> <i class='fa-solid fa-caret-down'></i></a>
+            <li class='dropdown-parent'><a href='/Memoire/admin/dashboard.php'><?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] ; ?> <i class='fa-solid fa-caret-down'></i></a>
                 <ul class='dropdown'>
-                    <li><a href='/Memoire/enseignant/profil.php'>Mon Profil</a></li>
-                    <li><a href='/Memoire/enseignant/dashboard.php'>Mon Espace</a></li>
+                    <li><a href='/Memoire/admin/dashboard.php'>Espace Admin</a></li>
                     <li><a href='/Memoire/actions/logoutAction.php'>Déconnexion</a></li>
                 </ul>
             </li>

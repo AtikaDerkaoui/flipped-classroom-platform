@@ -121,6 +121,9 @@ $id_departement_actuel = $info['id_departement'];
             case 'supports':
               include 'supports.php';
               break;
+            case 'videos':
+              include 'videos.php';
+              break;
             case 'quizz':
               include 'quizz.php';
               break;

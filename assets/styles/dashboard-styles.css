@@ -221,6 +221,7 @@
 .ajout-classe-form form{
     width: 50vw;
     height: fit-content;
+    max-height: 90vh;
     background-color: var(--white);
     border-radius: 20px;
     padding: 1rem 3rem;
@@ -229,7 +230,7 @@
 .ajout-classe-form .header{
     border-bottom: 2px solid var(--clear_blue);
     align-items: center;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     width: 100%
 }
 .ajout-classe-form .header img{
@@ -251,6 +252,7 @@
     font-weight: bold;
     color: var(--black_soft);
     display: block;
+    margin-bottom: 0px !important;
 }
 .ajout-classe-form .input-container p{
     color: var(--gray);
@@ -264,6 +266,7 @@
 }
 .ajout-classe-form .input-container label, .ajout-classe-form .input-container p{
     margin-bottom: 0.2rem;
+    margin-top: 0px !important
 }
 .ajout-classe-form .input-container .modifier-classe{
     font-size: 9pt;
@@ -293,6 +296,266 @@
     background-color: var(--blue);
     width: 60%;
 }
+
+
+/* ========================================================= */
+/* =============== DASHBOARD: CLASSE-DETAILS =============== */
+/* ========================================================= */
+.classe-details{
+    width: 70%;
+    padding: 1rem 5vw;
+}
+
+.classe-details {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.classe-details h1 {
+    text-align: center;
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+.classe-card {
+    background-color: var(--clearer_gray);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(1, 88, 122, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.classe-card:hover {
+    transform: translateY(-5px);
+}
+
+.classe-card p {
+    margin: 12px 0;
+    color: var(--clear_black);
+    font-size: 16px;
+}
+
+.classe-card strong {
+    color: var(--blue);
+}
+
+.inscription-message {
+    background-color: var(--clear-green);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-danger {
+    background-color: var(--red);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #b10000;
+}
+
+
+.form-inscription-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: var(--clearer_gray);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(1, 88, 122, 0.08);
+}
+
+.form-inscription {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-inscription label {
+    font-weight: bold;
+    color: var(--blue);
+    margin-bottom: 5px;
+}
+
+.instruction {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.input-code {
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid var(--gray2);
+    border-radius: 6px;
+    background-color: white;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.input-code:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px var(--clearer_blue);
+}
+
+.btn-submit {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--clear_blue);
+}
+
+
+/* ========================================================= */
+/* =============== DASHBOARD: ELEVES =============== */
+/* ========================================================= */
+.eleves{
+    padding: 2rem 2rem;
+    width: 80%;
+}
+.eleves h2{
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+
+}
+
+/* ========================================================= */
+/* =============== DASHBOARD: SUPPORTS =============== */
+/* ========================================================= */
+.supports{
+    padding: 2rem 2rem;
+    width: 80%;
+}
+.supports h1{
+    color: var(--white);
+    background-color: var(--blue);
+    padding: 1rem 2rem
+}
+.supports form{
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 0.5rem;
+    background-color:#b9dee4;
+}
+.supports form label{
+    font-weight: bold;
+}
+.supports form input{
+    height: 2rem;
+    width: 100%;
+}
+.supports form .custom-file-input{
+    display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid var(--gray2);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.supports form button{
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    color: var(--white);
+    background-color: var(--blue);
+    font-size: 12pt
+}
+.supports form button:hover{
+    background-color: #066c94;
+}
+.supports .liste-supports{
+    margin-top: 4rem;
+}
+.supports h2{
+    color: var(--blue);
+    border-top: 2px solid var(--blue);
+    padding-top: 2rem;
+    margin: 2rem 0px;
+    width: 100%;
+}
+
+
+
+/* ========================================================= */
+/* =============== DASHBOARD: SUPPORTS =============== */
+/* ========================================================= */
+.capsules-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .capsule {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 18vw;
+      height: fit-content;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      padding: 1rem 0.5rem;
+    }
+
+    .capsule:hover {
+      transform: translateY(-5px);
+    }
+
+    .capsule img {
+      width: 100%;
+      height: 40%;
+      object-fit: cover;
+    }
+
+    .capsule-content {
+      padding: 15px;
+    }
+
+    .capsule h3 {
+      margin: 0 0 10px;
+      font-size: 12pt;
+      color: #222;
+    }
+
+    .capsule p {
+      font-size: 10pt;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .capsule a {
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: var(--clear_blue);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .capsule a:hover {
+      background-color: var(--blue);
+    }
 
 
 /* ================================================= */
@@ -403,7 +666,68 @@
     background-color: var(--white);
     width: 60vw;
     height: fit-content;
-    padding: 3rem 3rem;
+    padding: 2rem 3rem;
+    position: relative;
+}
+.ajout-question-form .form-content{
+    display: flex;
+    flex-direction: column;
+}
+.ajout-question-form form h2{
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1rem;
+    width: fit-content
+}
+.ajout-question-form .btn-fermer-ajout-question{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+.ajout-question-form textarea{
+    width: 45vw;
+    height: 4rem;
+    margin-bottom: 1rem;
+}
+.ajout-question-form label{
+    font-weight: bold;
+    font-size: 14pt;
+    color: var(--blue);
+    margin-bottom: 0.5rem
+}
+.ajout-question-form form > div{
+    display: flex;
+    min-width: 45vw;
+}
+.ajout-question-form form > div input:first-child{
+    width: 45vw;
+    height: 2rem;
+    margin-right: 1rem;
+}
+.ajout-question-form form p{
+    margin-bottom: 0.6rem;
+}
+.ajout-question-form form .ajout-question-button{
+    border: none;
+    width: 45vw;
+}
+
+.quizz-ajouter-publier{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.quizz-ajouter-publier button{
+    background-color: #77b8c2;
+}
+.quizz-ajouter-publier button:hover{
+    background-color: #5daebb;
+}
+
+.delete-question-form button{
+    background-color: var(--clear_blue);
+    margin-top: 1rem;
 }
 
 /* ================================================= */

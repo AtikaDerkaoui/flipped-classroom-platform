@@ -1,4 +1,4 @@
-<form action="../../actions/addQuizz.php" method="post" class="delete-quizz-form">
+<form action="../../actions/addQuizz.php" method="post" class="delete-quizz-form" onsubmit="return confirm('Voulez-vous vraiment supprimer ce quizz ?');">
     <input type="hidden" name="id_quizz" value="<?= $id_quizz ?>">
     <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
 

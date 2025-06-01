@@ -18,6 +18,7 @@
     --clearer_blue: #99D8DD;
 
     --clear-green: rgb(109, 194, 141);
+    --red: #e60101;
   }
 
   /* Logo font */
@@ -179,6 +180,11 @@ button{
   padding: 0px 1rem;
   color: var(--clear_black);
 }
+.form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 
 
 /* bouton pour fermer */
@@ -194,6 +200,68 @@ button{
 }
 .close-button:hover{
   transform: scale(1.2);
+}
+
+/* bouton standard */
+.bouton-standard{
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+
+/* table moderne */
+.modern-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+
+    .modern-table th,
+    .modern-table td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    .modern-table thead {
+        background-color: #b9dee4;
+        font-weight: bold;
+    }
+
+    .modern-table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    .modern-table tbody tr:nth-child(even) {
+        background-color: #f0f4f8;
+    }
+
+    .modern-table tbody tr:hover {
+        background-color: #e2ecf5;
+    }
+
+    .modern-table button {
+        padding: 6px 12px;
+        background-color: var(--blue);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .modern-table button:hover {
+        background-color: #0056b3;
+    }
+
+
+.header-standard{
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.header-standard button{
+  background-color: var(--blue);
+  color: var(--white)
 }
 
 /* ============================================= */

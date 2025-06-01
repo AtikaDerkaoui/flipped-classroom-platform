@@ -1,8 +1,7 @@
 <!--=============== HEADER ===============-->
 <header class="header">
   <nav class="navbar">
-        
-    <div class="logo pacifico"><a href="dashboard.php">DzDucation</a></div>
+    <div class="logo pacifico"><a href="/Memoire/eleve/dashboard.php">DzDucation <span>Flipped Classroom</span></a></div>
         <ul class="nav-links" id="nav-links">
             <li><a href="#" class="btn">Messagerie</a></li>
             <li class="dropdown-parent ressources">
@@ -10,7 +9,7 @@
               <div class="dropdown">
                 <ul>
                   <li>
-                    <img src="../assets/img/ressources-pic1.png">
+                    <img src="/Memoire/assets/img/ressources-pic1.png">
                     <div>
                       <a href="#">Comprendre la classe inversée</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -18,7 +17,7 @@
                   </li>
 
                   <li>
-                    <img src="../assets/img/ressources-pic2.png">
+                    <img src="/Memoire/assets/img/ressources-pic2.png">
                     <div>
                       <a href="#">La classe inversée dans le monde</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -26,7 +25,7 @@
                   </li>
 
                   <li>
-                    <img src="../assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
                       <a href="#">La classe inversée en Algérie</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -36,7 +35,7 @@
 
                 <ul>
                   <li>
-                    <img src="../assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
                       <a href="#">Apprendre à utiliser la plateforme</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -44,7 +43,7 @@
                   </li>
 
                   <li>
-                    <img src="../assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
                       <a href="#">FAQ</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
@@ -54,11 +53,11 @@
               </div>
             </li>
 
-            <li class='dropdown-parent'><a href='profil.php'><?php echo $_SESSION['nom'] ; ?> <i class='fa-solid fa-caret-down'></i></a>
+            <li class='dropdown-parent'><a href='/Memoire/eleve/profil.php'><?php echo $_SESSION['nom'] ; ?> <i class='fa-solid fa-caret-down'></i></a>
                 <ul class='dropdown'>
-                    <li><a href='profil.php'>Mon Profil</a></li>
-                    <li><a href='dashboard.php'>Mon Espace</a></li>
-                    <li><a href='../actions/logoutAction.php'>Déconnexion</a></li>
+                    <li><a href='/Memoire/eleve/profil.php'>Mon Profil</a></li>
+                    <li><a href='/Memoire/eleve/dashboard.php'>Mon Espace</a></li>
+                    <li><a href='/Memoire/actions/logoutAction.php'>Déconnexion</a></li>
                 </ul>
             </li>
               

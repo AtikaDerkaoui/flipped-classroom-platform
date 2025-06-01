@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'eleve') {
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../../pages/login.php");
     exit();
 }
@@ -18,7 +18,9 @@ require_once '../../connexion.php';
 $id_classe = $_GET['id_classe'];
 $sql = "SELECT classes.nom_classe AS nom_classe, 
         departements.nom_departement AS nom_departement,
-        niveaux.nom_niveau AS nom_niveau, classes.module, 
+        niveaux.nom_niveau AS nom_niveau, 
+        classes.module, 
+        classes.code_classe,
         utilisateurs.nom AS nom_enseignant, 
         utilisateurs.prenom AS prenom_enseignant
         FROM classes
@@ -38,11 +40,21 @@ $stmt_supports->bindParam(':id_classe', $id_classe);
 $stmt_supports->execute();
 $supports = $stmt_supports->fetchAll();
 
+
+// Récupérer le niveau et département actuels en cas de non modification de ceux ci
+$stmt_classe = $conn->prepare("SELECT id_niveau, id_departement FROM classes WHERE id_classe = :id_classe");
+$stmt_classe->bindParam(':id_classe', $id_classe);
+$stmt_classe->execute();
+$info = $stmt_classe->fetch(PDO::FETCH_ASSOC);
+$id_niveau_actuel = $info['id_niveau'];
+$id_departement_actuel = $info['id_departement'];
+
+
 ?>
 
 <body>
   <?php // require_once(__DIR__.'/../includes/header-enseignant.php');
-     require_once(__DIR__.'/../../includes/header-eleve.php');
+     require_once(__DIR__.'/../../includes/header-admin.php');
   ?>
 
   <div class="dashboard-container">
@@ -59,16 +71,10 @@ $supports = $stmt_supports->fetchAll();
       <div class="left-part">
         <ul class="flex-centered">
           <li><a href="classe.php?page2=classe-details&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'classe-details' ? 'active' : '' ?>">La classe</a></li>
+          <li><a href="classe.php?page2=eleves&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'eleves' ? 'active' : '' ?>">Elèves</a></li>
           <li><a href="classe.php?page2=supports&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'supports' ? 'active' : '' ?>">Supports pédagogiques</a></li>
           <li><a href="classe.php?page2=videos&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'videos' ? 'active' : '' ?>">Vidéos et feedback</a></li>
           <li><a href="classe.php?page2=quizz&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
-
-          <hr>
-          <li><a href="dashboard.php?page=forum" class="<?= $page2 == 'forum' ? 'active' : '' ?>">Le forum</a></li>
-
-          <hr>
-          <li><a href="dashboard.php?page=guide" class="<?= $page2 == 'guide' ? 'active' : '' ?>">Guide d'utilisation</a></li>
-          <li><a href="dashboard.php?page=aide" class="<?= $page2 == 'aide' ? 'active' : '' ?>">Aide et conseils</a></li>
         </ul>
       </div>
 
@@ -88,7 +94,7 @@ $supports = $stmt_supports->fetchAll();
                   departements.nom_departement AS nom_departement,
                   niveaux.nom_niveau AS nom_niveau, 
                   classes.module, 
-                  classes.id_classe,
+                  classes.code_classe,
                   utilisateurs.nom AS nom_enseignant, 
                   utilisateurs.prenom AS prenom_enseignant
                   FROM classes
@@ -109,11 +115,11 @@ $supports = $stmt_supports->fetchAll();
           }
           // Afficher la page correspondante
           switch ($page2) {
+            case 'eleves':
+              include 'eleves.php';
+              break;
             case 'supports':
               include 'supports.php';
-              break;
-            case 'videos':
-              include 'classe-details.php';
               break;
             case 'quizz':
               include 'quizz.php';

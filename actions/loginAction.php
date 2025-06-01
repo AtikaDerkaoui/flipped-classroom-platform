@@ -30,14 +30,16 @@ if (isset($_POST['submit'])) {
         // Redirige l'utilisateur vers le tableau de bord
         if($_SESSION['role'] == 'eleve'){
             header("Location: ../eleve/dashboard.php");
-        }else{
+        }elseif($_SESSION['role'] == 'enseignant'){
             header("Location: ../enseignant/dashboard.php");
+        }else{
+            header("Location: ../admin/dashboard.php");
         }
         exit();
     } else {
         $_SESSION['message'] = "Email ou mot de passe incorrect, réessayer une autre fois.";
 
-        // Redirection vers la page d'inscription
+        // Redirection vers la page login
         header("Location: ../pages/login.php");
         exit;
     }

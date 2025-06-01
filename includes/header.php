@@ -2,7 +2,7 @@
 <header class="header">
   <nav class="navbar">
         
-    <div class="logo pacifico"><a href="/memoire/index.php">DzDucation</a></div>
+    <div class="logo pacifico"><a href="/Memoire/index.php">DzDucation <span>Flipped Classroom</span></a></div>
         
     <!-- Vérifier si l'user est dans les pages 'register/login' -->
     <?php

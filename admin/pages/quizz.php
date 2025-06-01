@@ -15,8 +15,8 @@ $quizzes = $stmt->fetchAll();
 <div class="quizzes classes">
     <!-- Ajouter un quizz -->
     <section class="ajouter-quizz ajout-classe space-between">
-        <h2>Mes Quizz</h2>
-        <p>Créer un quizz <button id="btn-ajout-quizz"><i class="fa-solid fa-plus"></i></button></p>
+        <h2>Quizz Disponibles</h2>
+        <p style="display: none;">Créer un quizz <button id="btn-ajout-quizz"><i class="fa-solid fa-plus"></i></button></p>
     </section>
 
     <!-- Quizz disponibles -->
@@ -29,7 +29,7 @@ $quizzes = $stmt->fetchAll();
              <!-- Formulaire ajouter question -->
             <div class="ajout-question-form flex-centered">
                 <?php
-                include(__DIR__.'/../../includes/addQuestion-form.php');
+                //include(__DIR__.'/../../includes/addQuestion-form.php');
                 ?>
             </div>
             
@@ -44,21 +44,9 @@ $quizzes = $stmt->fetchAll();
 
             <div class="quizz-content">
                 <?php if($quiz['publie_quizz'] === "0"): ?>
-                <div class="quizz-ajouter-publier">
-                <!-- Ajouter une question au quizz -->
-                <button class="btn-ajout-question bouton-standard" data-quizz-id="<?= $id_quizz ?>">
-                    <i class="fa-solid fa-plus"></i> Ajouter une question
-                </button>
-                <!-- Publier le quizz si c'est pas déjà fait (publie_quizz = 0) -->
-                <form action="../../actions/publishQuizz.php" method="post">
-                    <input type="hidden" name="id_quizz" value="<?= $quiz['id_quizz'] ?>">
-                    <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
-
-                    <button type="submit" name="publishQuizz" class="bouton-standard">Publier le quizz</button>
-                </form>
-                </div>
+                    <p>Ce quizz n'est pas encore publié.</p>
                 <?php else: ?>
-                    <p>Ce quizz est déjà publié, vous ne pouvez pas le modifier.</p>
+                    <p>Ce quizz est déjà publié.</p>
                 <?php endif; ?>
 
                 <!-- Affichage des questions du quizz -->
@@ -143,13 +131,6 @@ $quizzes = $stmt->fetchAll();
 <!-- ===================== SCRIPT ========================= -->
 <!-- ====================================================== --> 
 <script>
-
-// Bouton pour afficher le formulaire de création d'un quizz
-// ***************************************************************
-document.getElementById("btn-ajout-quizz").addEventListener("click", function () {
-    document.getElementById("ajout-quizz-form").classList.toggle('show');
-});
-
 // ================ Bouton pour afficher un quizz ================
 // ***************************************************************
 document.querySelectorAll(".btn-show-quizz").forEach(function (button) {
@@ -167,27 +148,4 @@ document.querySelectorAll(".btn-show-quizz").forEach(function (button) {
     });
 });
 
-// Bouton pour afficher le formulaire d'ajout de questions aux quizz
-// ***************************************************************
-document.querySelectorAll(".btn-ajout-question").forEach(function (button) {
-    button.addEventListener("click", function () {
-        const quizzContainer = button.closest(".quizz"); // Trouve le conteneur du quiz
-        const form = quizzContainer.querySelector(".ajout-question-form"); // Trouve le formulaire dans ce quiz
-        if (form) {
-            form.classList.toggle("show"); // Affiche ou cache le formulaire
-        }
-    });
-});
-
-// Bouton pour fermer le formulaire d'ajout de questions aux quizz
-// ***************************************************************
-document.querySelectorAll(".btn-fermer-ajout-question").forEach(function (button) {
-    button.addEventListener("click", function () {
-        const quizzContainer = button.closest(".quizz"); // Trouve le conteneur du quiz
-        const form = quizzContainer.querySelector(".ajout-question-form"); // Trouve le formulaire dans ce quiz
-        if (form) {
-            form.classList.toggle("show"); // Affiche ou cache le formulaire
-        }
-    });
-});
 </script>

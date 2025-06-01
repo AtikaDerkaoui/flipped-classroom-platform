@@ -10,6 +10,9 @@
     } elseif ($_SESSION['role'] == 'eleve') {
       header("Location: ../eleve/dashboard.php");
       exit();
+    } elseif ($_SESSION['role'] == 'admin'){
+      header("Location: ../admin/dashboard.php");
+      exit();
     }
   }
 

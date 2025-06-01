@@ -1,4 +1,6 @@
-<h1>La classe</h1>
+<div class="classe-details">
+<h1>Détails de la classe</h1>
+<div class="classe-card">
 <p><strong>Nom de la classe: </strong><?= htmlspecialchars($classe['nom_classe']) ?></p>
 <p><strong>Département: </strong><?= htmlspecialchars($classe['nom_departement']) ?></p>
 <p><strong>Niveau enseigné: </strong><?= htmlspecialchars($classe['nom_niveau']) ?></p>
@@ -13,7 +15,7 @@ $stmt->bindParam(':id_classe', $id_classe, PDO::PARAM_INT);
 $stmt->execute();
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-echo "Nombre d'élèves inscrits : " . $result['nb_eleves'];
+echo "<p><strong>Nombre d'élèves inscrits : </strong>" . $result['nb_eleves'] . "</p>";
 ?>
 
 <!-- Etat d'inscription de l'élève et possibilité de s'inscrire à la classe -->
@@ -31,16 +33,21 @@ echo "Nombre d'élèves inscrits : " . $result['nb_eleves'];
 
         if ($verif->rowCount() !== 0) {
             // Vous êtes inscrit à cette classe !
-            echo "<p>Vous êtes inscrit(e) à cette classe.</p>";
+            echo "<div class='inscription-message'>
+                    <p> Vous êtes inscrit(e) à cette classe.</p>
+                </div>";
             echo '
             <form action="/Memoire/actions/inscriptionClass.php" method="post">
                 <input type="hidden" name="id_classe" value="' .   $id_classe  . '">
-                <button type="submit" name="quitter-classe">Quitter la classe</button>
+                <button type="submit" name="quitter-classe" class="btn-danger">Quitter la classe</button>
             </form>
+            </div>
             ';
         }else{
             // Formulaire pour s'inscrire à la classe
+            echo "<div class='form-inscription-container'>";
             require_once(__DIR__.'/../../includes/inscriptionClass-form.php');
+            echo "</div>";
             if (isset($_SESSION['message'])) {
                     echo "<p style='color:red;'>".$_SESSION['message']."</p>";
                     // Supprimer le message après l'affichage
@@ -49,3 +56,4 @@ echo "Nombre d'élèves inscrits : " . $result['nb_eleves'];
         }
     }
 ?>
+</div>
