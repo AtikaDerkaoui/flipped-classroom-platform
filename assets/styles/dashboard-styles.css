@@ -557,6 +557,19 @@
       background-color: var(--blue);
     }
 
+    .video{
+        flex-direction: column !important;
+        gap: 1.5rem;
+        height: 77vh;
+        color: var(--blue)
+
+    }
+    video {
+      width: 50vw;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
 
 /* ================================================= */
 /* ===================== QUIZZ ===================== */
@@ -729,6 +742,18 @@
     background-color: var(--clear_blue);
     margin-top: 1rem;
 }
+
+
+/* ================================================= */
+/* ================= ADMINISTRATEUR ================= */
+/* ================================================= */
+.utilisateurs{
+    padding: 1rem;
+}
+.utilisateurs h2{
+    color: var(--blue);
+}
+
 
 /* ================================================= */
 /* ================= MEDIA QUERIES ================= */

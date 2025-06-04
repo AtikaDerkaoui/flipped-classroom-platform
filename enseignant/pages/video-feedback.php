@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'enseignant') {
     exit();
 }
 
-$page2 = $_GET['page2'] ?? ''; // page actuelle
+$page3 = $_GET['page3'] ?? ''; // page actuelle
 
 // Le head
 $titre = "DzDucation - Vidéo et feedback"; // titre de la page
@@ -31,8 +31,8 @@ require_once(__DIR__.'/../../includes/head.php');
       <!-- Left part: Side Navbar -->
       <div class="left-part">
         <ul class="flex-centered">
-          <li><a href="video-feedback.php?page2=video" class="<?= $page2 == 'video' ? 'active' : '' ?>">Vidéos et feedback</a></li>
-          <li><a href="video-feedback.php?page2=quizz" class="<?= $page2 == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
+          <li><a href="video-feedback.php?page3=video" class="<?= $page3 == 'video' ? 'active' : '' ?>">La Capsule Vidéo</a></li>
+          <li><a href="video-feedback.php?page3=feedback" class="<?= $page3 == 'feedback' ? 'active' : '' ?>">Quizz</a></li>
         </ul>
       </div>
 
@@ -40,9 +40,9 @@ require_once(__DIR__.'/../../includes/head.php');
       <div class="right-part">
 
       <?php 
-      switch ($page2) {
-            case 'quizz':
-              include 'quizz.php';
+      switch ($page3) {
+            case 'feedback':
+              include 'feedback.php';
               break;
             case 'video.php':
             default:

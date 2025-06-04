@@ -21,14 +21,12 @@ $stmt->execute();
 $users = $stmt->fetchAll();
 ?>
 
+<div class="utilisateurs">
+  <div class="header-standard">
+    <h2>Gestion des utilisateurs</h2>
+  </div>
 
-<div class="classes">
-    <section class="ajout-classe space-between">
-        <h2>Utilisateurs</h2>
-    </section>
-
-    <section class="liste-utilisateurs">
-    <table border="1" cellpadding="10" cellspacing="0">
+  <table class="modern-table">
 
     <thead>
     <tr>
@@ -68,6 +66,5 @@ $users = $stmt->fetchAll();
     <?php else: ?>
         <p>Aucun utilisateur inscrit dans la plateforme pour le moment.</p>
     <?php endif; ?>
-        </section>
 
 </div>
