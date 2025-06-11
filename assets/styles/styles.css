@@ -154,7 +154,6 @@ button{
   box-shadow: 0px 4px 4px 0px #5f5f5fbb;
 }
 
-
 /* bouton pour fermer */
 .close-button{
   width: 2rem;
@@ -177,6 +176,16 @@ button{
 .bouton-standard{
   border: none;
   padding: 0.5rem 1rem;
+}
+/* bouton neutre */
+.btn-neutre{
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 /* les formes */

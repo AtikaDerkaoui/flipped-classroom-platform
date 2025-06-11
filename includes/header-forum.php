@@ -60,7 +60,7 @@
                 <ul class='dropdown'>
                     <li><a href='/Memoire/<?= $_SESSION['role'] ?>/profil.php'>Mon Profil</a></li>
                     <li><a href='/Memoire/<?= $_SESSION['role'] ?>/dashboard.php'>Mon Espace</a></li>
-                    <li><a href='/Memoire/<?= $_SESSION['role'] ?>/logoutAction.php'>Déconnexion</a></li>
+                    <li><a href='/Memoire/actions/logoutAction.php'>Déconnexion</a></li>
                 </ul>
             </li>
               

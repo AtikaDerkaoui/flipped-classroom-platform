@@ -202,11 +202,8 @@ document.querySelectorAll(".btn-ajout-question").forEach(function (button) {
 document.querySelectorAll(".btn-afficher-resultats-quizz").forEach(function (button) {
     button.addEventListener("click", function () {
         const quizzContainer = button.closest(".quizz-content"); // Trouve le conteneur du quiz
-        console.log(quizzContainer);
         const form = quizzContainer.querySelector(".resultats-container"); // Trouve le formulaire dans ce quiz
-        console.log(form);
         if (form) {
-            console.log("non non");
             form.classList.toggle("show"); // Affiche ou cache le formulaire
         }
     });
