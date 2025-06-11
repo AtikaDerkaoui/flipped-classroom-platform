@@ -11,11 +11,19 @@ if (isset($_POST['publishQuizz']) && isset($_POST['id_quizz']) && isset($_POST['
     $stmt->bindParam(':id_quizz', $id_quizz, PDO::PARAM_INT);
     $stmt->bindParam(':id_classe', $id_classe, PDO::PARAM_INT);
 
-    if ($stmt->execute()) {
-        header("Location: ../enseignant/pages/classe.php?page2=quizz&id_classe=$id_classe");
-        exit();
-    } else {
-        echo "Erreur lors de la publication du quizz.";
+    if (isset($_POST['id_video'])){
+        if ($stmt->execute()){
+            $id_video = intval($_POST['id_video']);
+            header("Location: ../enseignant/pages/video.php?page3=video-feedback&id_classe=$id_classe&id_video=$id_video");
+        } else {
+            echo "Erreur lors de l'ajout du quiz.";
+        }
+    }else{
+        if ($stmt->execute()) {
+            header("Location: ../enseignant/pages/classe.php?page2=quizz-standard&id_classe=$id_classe");
+        } else {
+            echo "Erreur lors de l'ajout du quiz.";
+        }
     }
 } else {
     echo "Paramètres manquants.";

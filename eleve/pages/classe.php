@@ -15,6 +15,7 @@ require_once(__DIR__.'/../../includes/head.php');
 // Inclure le fichier de connexion
 require_once '../../connexion.php';
 
+// recuperer la classe actuelle
 $id_classe = $_GET['id_classe'];
 $sql = "SELECT classes.nom_classe AS nom_classe, 
         departements.nom_departement AS nom_departement,
@@ -32,12 +33,20 @@ $stmt->bindParam(':id_classe', $id_classe);
 $stmt->execute();
 $classe = $stmt->fetch();
 
+// liste des supports
 $sql_supports = "SELECT * FROM supports WHERE id_classe = :id_classe";
 $stmt_supports = $conn->prepare($sql_supports);
 $stmt_supports->bindParam(':id_classe', $id_classe);
 $stmt_supports->execute();
 $supports = $stmt_supports->fetchAll();
 
+
+// liste des vidéos
+$sql_videos = "SELECT * FROM videos WHERE id_classe = :id_classe";
+$stmt_videos = $conn->prepare($sql_videos); 
+$stmt_videos->bindParam(':id_classe', $id_classe);
+$stmt_videos->execute();
+$videos = $stmt_videos->fetchAll();
 ?>
 
 <body>
@@ -61,7 +70,7 @@ $supports = $stmt_supports->fetchAll();
           <li><a href="classe.php?page2=classe-details&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'classe-details' ? 'active' : '' ?>">La classe</a></li>
           <li><a href="classe.php?page2=supports&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'supports' ? 'active' : '' ?>">Supports pédagogiques</a></li>
           <li><a href="classe.php?page2=videos&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'videos' ? 'active' : '' ?>">Vidéos et feedback</a></li>
-          <li><a href="classe.php?page2=quizz&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
+          <li><a href="classe.php?page2=quizz-standard&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz-standard' ? 'active' : '' ?>">Quizz</a></li>
 
           <hr>
           <li><a href="dashboard.php?page=forum" class="<?= $page2 == 'forum' ? 'active' : '' ?>">Le forum</a></li>
@@ -113,10 +122,10 @@ $supports = $stmt_supports->fetchAll();
               include 'supports.php';
               break;
             case 'videos':
-              include 'classe-details.php';
+              include 'videos.php';
               break;
-            case 'quizz':
-              include 'quizz.php';
+            case 'quizz-standard':
+              include 'quizz-standard.php';
               break;
             case 'classe-details':
             default:

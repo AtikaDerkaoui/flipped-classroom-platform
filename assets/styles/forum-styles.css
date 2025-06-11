@@ -1,0 +1,50 @@
+.forum-container {
+  margin-top: 15vh;
+  background-color: var(--clearer_gray);
+  min-height: 85vh;
+  padding: 2rem;
+}
+.forum-container .left-part{
+  width: 75%;
+}
+.forum-container .right-part{
+  width: 20%;
+  border: 2px solid rgb(0, 0, 0)
+}
+.create-category{
+  background-color: var(--white);
+}
+.create-category h3{
+  display: block;
+  background-color: var(--clear_blue);
+  color: white;
+  padding: 0.5rem 4rem;
+}
+.create-category .form{
+  padding: 0.5rem 4rem;
+}
+.create-category .form input{
+  height: 2rem;
+  border-radius: 5px;
+  border: 1px solid var(--clear_blue)
+}
+.create-category .form textarea{
+  padding: 1rem;
+  border-radius: 5px;
+    border: 1px solid var(--clear_blue)
+
+}
+.create-category .form label{
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.create-category .form .bouton-standard{
+  background-color: var(--clear_blue);
+  color: white;
+  width: 30%;
+  align-self: center;
+}
+.create-category .form .bouton-standard:hover{
+  width: 40%;
+  background-color: var(--blue);
+}

@@ -2,7 +2,7 @@
 require_once '../connexion.php';
 session_start();
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 
 if (isset($_POST['addQuestion'])) {
     $id_classe = intval($_POST['id_classe']);
@@ -23,8 +23,12 @@ if (isset($_POST['addQuestion'])) {
         $stmt->execute([$id_question, $texte, $est_correcte]);
     }
 
-    header("Location: ../enseignant/pages/classe.php?page2=quizz&id_classe=$id_classe");
-    exit;
+    if (isset($_POST['id_video'])){
+        $id_video = intval($_POST['id_video']);
+        header("Location: ../enseignant/pages/video.php?page3=video-feedback&id_classe=$id_classe&id_video=$id_video");
+    }else{
+        header("Location: ../enseignant/pages/classe.php?page2=quizz-standard&id_classe=$id_classe");
+    }
 }
 
 if (isset($_POST['deleteQuestion'])) {
@@ -35,6 +39,10 @@ if (isset($_POST['deleteQuestion'])) {
     $stmt->bindParam(':id_question', $id_question);
     $stmt->execute();
 
-    header("Location: ../enseignant/pages/classe.php?page2=quizz&id_classe=$id_classe");
-}
+    if (isset($_POST['id_video'])){
+        $id_video = intval($_POST['id_video']);
+        header("Location: ../enseignant/pages/video.php?page3=video-feedback&id_classe=$id_classe&id_video=$id_video");
+    }else{
+        header("Location: ../enseignant/pages/classe.php?page2=quizz-standard&id_classe=$id_classe");
+    }}
 ?>

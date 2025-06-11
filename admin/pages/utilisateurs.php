@@ -2,6 +2,11 @@
 // Inclure le fichier de connexion
 require_once '../connexion.php';
 
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header("Location: ../../pages/login.php");
+    exit();
+}
+
 $id_admin = $_SESSION['user_id'];
 
 $sql = "SELECT utilisateurs.id AS id, 
@@ -45,21 +50,27 @@ $users = $stmt->fetchAll();
     <tbody>
     <?php count($users) ?>
     <?php if (count($users) > 0): ?>
-        <?php foreach ($users as $user): ?>
-            <tr>
+        <?php foreach ($users as $user): 
+        $date = new DateTime($user['date_inscription']); ?>
+    <tr>
       <td><?= htmlspecialchars($user['id']) ?></td>
       <td><?= htmlspecialchars($user['nom']) ?></td>
       <td><?= htmlspecialchars($user['prenom']) ?></td>
       <td><?= htmlspecialchars($user['email']) ?></td>
       <td><?= htmlspecialchars($user['user_role']) ?></td>
-      <td><?= htmlspecialchars($user['date_inscription']) ?></td>
+      <td><?= $date->format('d/m/Y') ?></td>
       <td><?= htmlspecialchars($user['nom_niveau']) ?></td>
       <td><?= htmlspecialchars($user['nom_departement']) ?></td>
       <td>
-        <form action="supprimer_utilisateur.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
-          <input type="hidden" name="id" value="1">
+        <?php if($user['user_role'] === 'admin'){
+            echo "Admin";
+        }else{
+        ?>
+        <form action="../actions/deleteUser.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+          <input type="hidden" name="id" value="<?= $user['id'] ?>">
           <button type="submit">Supprimer</button>
         </form>
+        <?php } ?>
       </td>
     </tr>
         <?php endforeach; ?>

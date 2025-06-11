@@ -15,6 +15,7 @@ require_once(__DIR__.'/../../includes/head.php');
 // Inclure le fichier de connexion
 require_once '../../connexion.php';
 
+// recuperer la classe actuelle
 $id_classe = $_GET['id_classe'];
 $sql = "SELECT classes.nom_classe AS nom_classe, 
         departements.nom_departement AS nom_departement,
@@ -34,11 +35,20 @@ $stmt->bindParam(':id_classe', $id_classe);
 $stmt->execute();
 $classe = $stmt->fetch();
 
+// Récuperer la liste des supports de cette classe
 $sql_supports = "SELECT * FROM supports WHERE id_classe = :id_classe";
 $stmt_supports = $conn->prepare($sql_supports);
 $stmt_supports->bindParam(':id_classe', $id_classe);
 $stmt_supports->execute();
 $supports = $stmt_supports->fetchAll();
+
+
+// liste des vidéos
+$sql_videos = "SELECT * FROM videos WHERE id_classe = :id_classe";
+$stmt_videos = $conn->prepare($sql_videos); 
+$stmt_videos->bindParam(':id_classe', $id_classe);
+$stmt_videos->execute();
+$videos = $stmt_videos->fetchAll();
 
 
 // Récupérer le niveau et département actuels en cas de non modification de ceux ci
@@ -74,7 +84,7 @@ $id_departement_actuel = $info['id_departement'];
           <li><a href="classe.php?page2=eleves&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'eleves' ? 'active' : '' ?>">Elèves</a></li>
           <li><a href="classe.php?page2=supports&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'supports' ? 'active' : '' ?>">Supports pédagogiques</a></li>
           <li><a href="classe.php?page2=videos&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'videos' ? 'active' : '' ?>">Vidéos et feedback</a></li>
-          <li><a href="classe.php?page2=quizz&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz' ? 'active' : '' ?>">Quizz</a></li>
+          <li><a href="classe.php?page2=quizz-standard&id_classe=<?= $id_classe ?>" class="<?= $page2 == 'quizz-standard' ? 'active' : '' ?>">Quizz</a></li>
         </ul>
       </div>
 
@@ -89,7 +99,7 @@ $id_departement_actuel = $info['id_departement'];
               echo "<p>Erreur : identifiant de la classe manquant ou invalide.</p>";
               exit;
           }
-          // Toujours charger les détails de la classe pour toutes les pages incluses
+          // Les détails de la classe
           $sql = "SELECT classes.nom_classe AS nom_classe, 
                   departements.nom_departement AS nom_departement,
                   niveaux.nom_niveau AS nom_niveau, 
@@ -124,8 +134,8 @@ $id_departement_actuel = $info['id_departement'];
             case 'videos':
               include 'videos.php';
               break;
-            case 'quizz':
-              include 'quizz.php';
+            case 'quizz-standard':
+              include 'quizz-standard.php';
               break;
             case 'classe-details':
             default:

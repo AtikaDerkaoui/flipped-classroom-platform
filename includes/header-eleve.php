@@ -3,7 +3,8 @@
   <nav class="navbar">
     <div class="logo pacifico"><a href="/Memoire/eleve/dashboard.php">DzDucation <span>Flipped Classroom</span></a></div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="#" class="btn">Messagerie</a></li>
+            <li><a href="/Memoire/forum/forum.php" class="btn">Forum</a></li>
+            <li><a href="/Memoire/eleve/dashboard.php">Accueil</a></li>
             <li class="dropdown-parent ressources">
               <a href="#">Ressources <i class="fa-solid fa-caret-down"></i></a>
               <div class="dropdown">

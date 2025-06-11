@@ -2,9 +2,9 @@
 <header class="header">
   <nav class="navbar">
         
-    <div class="logo pacifico"><a href="/Memoire/enseignant/dashboard.php">DzDucation : Forum</a></div>
+    <div class="logo pacifico"><a href="/Memoire/<?= $_SESSION['role'] ?>/dashboard.php">DzDucation : Forum</a></div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="#" class="btn">Messagerie</a></li>
+            <li><a href="/Memoire/<?= $_SESSION['role'] ?>/dashboard.php">Accueil</a></li>
             <li class="dropdown-parent ressources">
               <a href="#">Ressources <i class="fa-solid fa-caret-down"></i></a>
               <div class="dropdown">
@@ -55,11 +55,12 @@
               </div>
             </li>
 
-            <li class='dropdown-parent'><a href='/Memoire/enseignant/profil.php'><?php echo $_SESSION['nom'] . ' ' . $_SESSION['prenom'] ; ?> <i class='fa-solid fa-caret-down'></i></a>
+            <li class='dropdown-parent'>
+              <a href='/Memoire/<?= $_SESSION['role'] ?>/profil.php'><?= $_SESSION['nom'] ?> <i class='fa-solid fa-caret-down'></i></a>
                 <ul class='dropdown'>
-                    <li><a href='/Memoire/enseignant/profil.php'>Mon Profil</a></li>
-                    <li><a href='/Memoire/enseignant/dashboard.php'>Mon Espace</a></li>
-                    <li><a href='/Memoire/actions/logoutAction.php'>Déconnexion</a></li>
+                    <li><a href='/Memoire/<?= $_SESSION['role'] ?>/profil.php'>Mon Profil</a></li>
+                    <li><a href='/Memoire/<?= $_SESSION['role'] ?>/dashboard.php'>Mon Espace</a></li>
+                    <li><a href='/Memoire/<?= $_SESSION['role'] ?>/logoutAction.php'>Déconnexion</a></li>
                 </ul>
             </li>
               

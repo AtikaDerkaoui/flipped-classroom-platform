@@ -8,6 +8,11 @@
     </div>
 
     <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
+    <!-- id_video -->
+    <?php if (isset($id_video)): ?>
+        <input type="hidden" name="id_video" value="<?= $id_video ?>">
+    <?php endif; ?>
+
 
     <div class="input-container">
         <label for="titre_quizz">Titre du quizz: </label>

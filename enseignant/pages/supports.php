@@ -1,5 +1,6 @@
 <div class="supports">
 <h1>Ajouter un support pédagogique</h1>
+<div class="form-container">
 <!-- Formulaire pour ajouter un nouveau support -->
 <form action="/Memoire/actions/addSupport.php" method="post" enctype="multipart/form-data" class="space-between form">
     <label for="titre_support">Titre de support pédagogique: </label>
@@ -12,6 +13,7 @@
 
     <button type="submit">Ajouter le support</button>
 </form>
+</div>
 
 <div class="liste-supports">
 <h2>Liste des supports</h2>

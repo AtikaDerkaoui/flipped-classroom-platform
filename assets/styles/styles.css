@@ -12,10 +12,12 @@
     --white: #F9F9F9;
   
     --yellow: #F3BA00;
+    --orange: #d39000;
   
     --blue: #01587A;
+    --blue2: #007aaa;
     --clear_blue: #5cb3c1;
-    --clearer_blue: #99D8DD;
+    --clearer_blue: #90e0ef;
 
     --clear-green: rgb(109, 194, 141);
     --red: #e60101;
@@ -128,14 +130,19 @@ button{
 .rotate-180{
   transform: rotate(180deg);
 }
+
 /* ================================================ */
 /* =============== ELEMENTS communs =============== */
 /* ================================================ */
+.session-message{
+  color: var(--red)
+}
 
 /* les boutons */
 .btn{
   background-color: var(--yellow);
   border-radius: 15px;
+  border: none;
   color: var(--black_soft);
   font-family: "Nunito", sans-serif;
   padding: 10px;
@@ -148,12 +155,36 @@ button{
 }
 
 
+/* bouton pour fermer */
+.close-button{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--clear_blue);
+  color: var(--white);
+  font-size: 16pt;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.close-button:hover{
+  transform: scale(1.2);
+}
+
+/* bouton standard */
+.bouton-standard{
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
 /* les formes */
 .form{
   display: flex;
   flex-direction: column;
 }
-.form input, .form input[type="email"]{
+.form input, .form input[type="email"], .form textarea{
   background-color: var(--white);
   border: 1px solid var(--gray);
   padding: 0px 1rem;
@@ -166,13 +197,14 @@ button{
   border: 1px solid var(--gray) !important;
   transition: background-color 9999s ease-in-out 0s;
 }
-.form input::placeholder, .form input[type="email"]::placeholder {
+.form input::placeholder, .form input[type="email"]::placeholder, .forum textarea::placeholder {
   color: var(--gray);          /* texte du placeholder */
   opacity: 0.8;         /* un peu plus clair */
   font-style: italic;   /* optionnel */
 }
-.form input:focus, .form input[type="email"]:focus{
+.form input:focus, .form input[type="email"]:focus, .form textarea:focus{
   outline: none;
+  border: 1.5px solid var(--clear_black);
 }
 .form-select{
   background-color: var(--white);
@@ -187,50 +219,25 @@ button{
 }
 
 
-/* bouton pour fermer */
-.close-button{
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--clear_blue);
-  color: var(--white);
-  font-size: 16pt;
-  cursor: pointer;
-}
-.close-button:hover{
-  transform: scale(1.2);
-}
-
-/* bouton standard */
-.bouton-standard{
-  border: none;
-  padding: 0.5rem 1rem;
-}
-
 
 /* table moderne */
 .modern-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: Arial, sans-serif;
-    }
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
 
-    .modern-table th,
-    .modern-table td {
-        padding: 12px 15px;
-        text-align: left;
-    }
-
-    .modern-table thead {
-        background-color: #b9dee4;
-        font-weight: bold;
-    }
-
+.modern-table th, .modern-table td {
+  padding: 12px 5px;
+  text-align: left;
+}
+.modern-table thead {
+  background-color: #b9dee4;
+  font-weight: bold;
+  }
     .modern-table tbody tr:nth-child(odd) {
         background-color: #ffffff;
     }
-
     .modern-table tbody tr:nth-child(even) {
         background-color: #f0f4f8;
     }

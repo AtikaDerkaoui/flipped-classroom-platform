@@ -24,7 +24,7 @@
     position: absolute;
     bottom: -10%;
     right: -10%;
-    color: var(--clearer_blue)
+    color: var(--white)
   }
   .nav-links {
     list-style: none;
@@ -45,7 +45,7 @@
   }
   .nav-links .btn{
     color: var(--black_soft) !important;
-    padding: 10px 15px;
+    padding: 10px 2rem;
     box-shadow: none;
   }
   

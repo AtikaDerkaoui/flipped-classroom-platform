@@ -1,10 +1,11 @@
 <div class="classe-details">
+
 <div class="header-standard space-between">
-<!-- Supprimer la classe -->
-<form action="/Memoire/actions/deleteClass.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette classe ?');">
-    <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
-    <button type="submit" name="supprimer"><i class="fa-solid fa-trash"></i> Supprimer la classe</button>
-</form>
+    <!-- Supprimer la classe -->
+    <form action="/Memoire/actions/deleteClass.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette classe ?');">
+        <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
+        <button type="submit" name="supprimer" class="bouton-standard"><i class="fa-solid fa-trash"></i> Supprimer la classe</button>
+    </form>
 </div>
 
 <!-- Appel au formulaire de modification de la classe -->
@@ -12,6 +13,8 @@
     require_once(__DIR__.'/../../includes/modifyClass-form.php');
 ?>
 
+<h1>Détails de la classe</h1>
+<div class="classe-card">
 <!--Nom de la classe -->
 <p><strong>Nom de la classe: </strong><?= htmlspecialchars($classe['nom_classe']) ?></p>
 <!-- Département de la classe -->
@@ -39,4 +42,5 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 echo "<p><strong>Nombre d'élèves inscrits : </strong>" . $result['nb_eleves'] ."</p>";
 ?>
+
 </div>

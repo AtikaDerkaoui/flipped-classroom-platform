@@ -2,11 +2,18 @@
 // Inclure le fichier de connexion
 require_once '../../connexion.php';
 
-$stmt = $conn->prepare("SELECT * FROM quizz WHERE id_classe = :id_classe");
-$stmt->bindParam(':id_classe', $id_classe);
-$stmt->execute();
-$quizzes = $stmt->fetchAll();
-
+if (isset($page3)){
+    $stmt = $conn->prepare("SELECT * FROM quizz WHERE id_classe = :id_classe AND id_video = :id_video");
+    $stmt->bindParam(':id_classe', $id_classe);
+    $stmt->bindParam(':id_video', $id_video);
+    $stmt->execute();
+    $quizzes = $stmt->fetchAll();
+}else{
+    $stmt = $conn->prepare("SELECT * FROM quizz WHERE id_classe = :id_classe AND id_video IS NULL");
+    $stmt->bindParam(':id_classe', $id_classe, PDO::PARAM_INT);
+    $stmt->execute();
+    $quizzes = $stmt->fetchAll();
+}
 ?>
 
 <!-- ====================================================== --> 
@@ -15,52 +22,39 @@ $quizzes = $stmt->fetchAll();
 <div class="quizzes classes">
     <!-- Ajouter un quizz -->
     <section class="ajouter-quizz ajout-classe space-between">
-        <h2>Mes Quizz</h2>
-        <p>Créer un quizz <button id="btn-ajout-quizz"><i class="fa-solid fa-plus"></i></button></p>
+        <h2>
+            <?php 
+            if(isset($page3)){
+                echo "Quizz de la Capsule";
+            }else{
+                echo "Quizz";
+            }
+            ?>
+        </h2>
     </section>
 
     <!-- Quizz disponibles -->
     <section class="quizzes-container classes-container">
+        <?php if (empty($quizzes)) {
+            echo "<p>Aucun quiz disponible.</p>";
+        }?>
         <?php foreach ($quizzes as $quiz) {?>
         <?php $id_quizz = $quiz['id_quizz']; ?>
 
         <!-- Début du quizz -->
         <div class="quizz">
-             <!-- Formulaire ajouter question -->
-            <div class="ajout-question-form flex-centered">
-                <?php
-                include(__DIR__.'/../../includes/addQuestion-form.php');
-                ?>
-            </div>
-            
             <!-- Quizz -->
             <div class="quizz-header space-between">
                 <h3><?=$quiz['titre_quizz'] ?></h3>
                 <div>
+                    <!-- Supprimer le quiz -->
                     <?php include(__DIR__.'/../../includes/deleteQuizz-form.php'); ?>
-                    <button class="btn-show-quizz"><i class="fa-solid fa-caret-down"></i></button>
+                    <!-- Afficher le quiz -->
+                    <button class="btn-show-quizz"><i class="fa-solid fa-caret-down fa-show-quizz"></i></button>
                 </div>
             </div>
 
             <div class="quizz-content">
-                <?php if($quiz['publie_quizz'] === "0"): ?>
-                <div class="quizz-ajouter-publier">
-                <!-- Ajouter une question au quizz -->
-                <button class="btn-ajout-question bouton-standard" data-quizz-id="<?= $id_quizz ?>">
-                    <i class="fa-solid fa-plus"></i> Ajouter une question
-                </button>
-                <!-- Publier le quizz si c'est pas déjà fait (publie_quizz = 0) -->
-                <form action="../../actions/publishQuizz.php" method="post">
-                    <input type="hidden" name="id_quizz" value="<?= $quiz['id_quizz'] ?>">
-                    <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
-
-                    <button type="submit" name="publishQuizz" class="bouton-standard">Publier le quizz</button>
-                </form>
-                </div>
-                <?php else: ?>
-                    <p>Ce quizz est déjà publié, vous ne pouvez pas le modifier.</p>
-                <?php endif; ?>
-
                 <!-- Affichage des questions du quizz -->
                 <?php 
                 $count = 0;
@@ -76,7 +70,7 @@ $quizzes = $stmt->fetchAll();
                 <div class="quizz-question">
                     <h4><?= $count ?>. <?= $question['texte_question'] ?></h4>
 
-                    <!-- Affichage des réponses -->
+                    <!-- Affichage les réponses de la question -->
                     <?php 
                     $stmt2 = $conn->prepare("SELECT * FROM reponses WHERE id_question = :id_question");
                     $stmt2->bindParam(':id_question', $question['id_question']);
@@ -90,14 +84,6 @@ $quizzes = $stmt->fetchAll();
                         <li class="quizz-reponse" <?= $style ?>><?= $reponse['texte_reponse'] ?></li>
                         <?php } ?>
                     </ul>
-
-                    <!-- supprimer/modifier la question -->
-                    <?php 
-                    if($quiz['publie_quizz'] === "0"):
-                        include(__DIR__.'/../../includes/deleteQuestion-form.php');
-                        include(__DIR__.'/../../includes/modifyQuestion-form.php');
-                    endif;
-                    ?>
                 </div>
                 <?php } ?>
 
@@ -122,23 +108,6 @@ $quizzes = $stmt->fetchAll();
 </div>
 
 
-
-
-<!-- ====================================================== --> 
-<!-- ===== Ajout des questions après création du quizz ==== -->
-<!-- ====================================================== --> 
-<?php if (isset($_SESSION['quizz-added'])):
-    if ($_SESSION['quizz-added'] === true)?>
-        <script>
-            // ??????
-        </script>
-<?php endif; ?>
-<?php unset($_SESSION['quizz-added']); ?>
-
-
-
-
-
 <!-- ====================================================== --> 
 <!-- ===================== SCRIPT ========================= -->
 <!-- ====================================================== --> 
@@ -146,9 +115,12 @@ $quizzes = $stmt->fetchAll();
 
 // Bouton pour afficher le formulaire de création d'un quizz
 // ***************************************************************
-document.getElementById("btn-ajout-quizz").addEventListener("click", function () {
-    document.getElementById("ajout-quizz-form").classList.toggle('show');
-});
+const btnAjout = document.getElementById("btn-ajout-quizz");
+if (btnAjout) {
+    btnAjout.addEventListener("click", function () {
+        document.getElementById("ajout-quizz-form").classList.toggle('show');
+    });
+};
 
 // ================ Bouton pour afficher un quizz ================
 // ***************************************************************
@@ -157,17 +129,18 @@ document.querySelectorAll(".btn-show-quizz").forEach(function (button) {
         const quizzContainer = button.closest(".quizz"); // Trouve le conteneur du quiz
         const form = quizzContainer.querySelector(".quizz-content"); // Trouve le formulaire dans ce quiz
         const form2 = quizzContainer.querySelector(".delete-quizz-form");
+        const btn = quizzContainer.querySelector(".fa-show-quizz");
         if (form) {
             form.classList.toggle("show-block"); // Affiche ou cache le formulaire
+            btn.classList.toggle("rotate-180");
         }
         if (form2) {
-            console.log("delete");
             form2.classList.toggle("show-block"); // Affiche ou cache le formulaire
         }
     });
 });
 
-// Bouton pour afficher le formulaire d'ajout de questions aux quizz
+// Bouton pour afficher/fermer le formulaire d'ajout de questions aux quizz
 // ***************************************************************
 document.querySelectorAll(".btn-ajout-question").forEach(function (button) {
     button.addEventListener("click", function () {
@@ -179,13 +152,17 @@ document.querySelectorAll(".btn-ajout-question").forEach(function (button) {
     });
 });
 
-// Bouton pour fermer le formulaire d'ajout de questions aux quizz
+
+// Bouton pour afficher/fermer les résultats du quizz
 // ***************************************************************
-document.querySelectorAll(".btn-fermer-ajout-question").forEach(function (button) {
+document.querySelectorAll(".btn-afficher-resultats-quizz").forEach(function (button) {
     button.addEventListener("click", function () {
-        const quizzContainer = button.closest(".quizz"); // Trouve le conteneur du quiz
-        const form = quizzContainer.querySelector(".ajout-question-form"); // Trouve le formulaire dans ce quiz
+        const quizzContainer = button.closest(".quizz-content"); // Trouve le conteneur du quiz
+        console.log(quizzContainer);
+        const form = quizzContainer.querySelector(".resultats-container"); // Trouve le formulaire dans ce quiz
+        console.log(form);
         if (form) {
+            console.log("non non");
             form.classList.toggle("show"); // Affiche ou cache le formulaire
         }
     });

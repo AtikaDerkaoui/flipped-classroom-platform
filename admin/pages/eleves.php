@@ -19,32 +19,34 @@ $eleves = $stmt->fetchAll();
 ?>
 
 
-<!-- 
-<?php // if (count($inscriptions) > 0): ?>
-    <ul>
-    <?php // foreach ($inscriptions as $inscription): ?>
-        <li>
-            <strong>Id d'élève: // htmlspecialchars($inscription['id'])</strong> <br>
-        </li>
-        
-        <hr><br>
-    <?php //endforeach; ?>
-    </ul>
-<?php // else: ?>
-    <p>Aucun élève inscrit dans cette classe.</p>
-<?php // endif; ?>
--->
-
+<div class="eleves">
+<h2>Listes des élèves inscrits dans cette classe</h2>
 <?php if (count($eleves) > 0): ?>
-    <ul>
-    <?php foreach ($eleves as $eleve): ?>
-        <li>
-            <strong><?= htmlspecialchars($eleve['nom']) ?> <?= htmlspecialchars($eleve['prenom']) ?></strong>
-            (ID : <?= htmlspecialchars($eleve['id_eleve']) ?>)
-        </li>
-        <hr>
-    <?php endforeach; ?>
-    </ul>
+    <table class="modern-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Supprimer de la classe</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($eleves as $eleve): ?>
+                <tr>
+                    <td><?= htmlspecialchars($eleve['id_eleve']) ?></td>
+                    <td><?= htmlspecialchars($eleve['nom']) ?></td>
+                    <td><?= htmlspecialchars($eleve['prenom']) ?></td>
+                    <td>
+                        <button>Supprimer</button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
 <?php else: ?>
     <p>Aucun élève inscrit dans cette classe.</p>
 <?php endif; ?>
+</div>
