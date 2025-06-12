@@ -37,7 +37,7 @@ require_once(__DIR__.'/../../includes/head.php');
 
 <body>
   <?php // require_once(__DIR__.'/../includes/header-enseignant.php');
-     require_once(__DIR__.'/../../includes/header-enseignant.php');
+     require_once(__DIR__.'/../../includes/header-member.php');
   ?>
 
   <div class="dashboard-container">

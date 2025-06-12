@@ -3,7 +3,7 @@ session_start();
 require_once '../connexion.php';
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['addSupport'])) {
     $titre_support = $_POST['titre_support'];
     $id_classe = $_POST['id_classe'];
 
@@ -51,5 +51,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "Erreur lors de l’upload du fichier.";
     }
+}
+
+if (isset($_POST['deleteSupport'])) {
+    $id_support = $_POST['id_support'];
+    $id_classe = $_POST['id_classe'];
+
+    $stmt = $conn->prepare("DELETE FROM supports WHERE id_support = :id_support");
+    $stmt->bindParam(':id_support', $id_support);
+    $stmt->execute();
+
+    header("Location: ../enseignant/pages/classe.php?page2=supports&id_classe=$id_classe");
+    exit;
 }
 ?>

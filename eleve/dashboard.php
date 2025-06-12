@@ -14,7 +14,7 @@ require_once(__DIR__.'/../includes/head.php');
 
 
 <body>
-    <?php require_once(__DIR__.'/../includes/header-eleve.php');
+    <?php require_once(__DIR__.'/../includes/header-member.php');
     ?>
 
     <div class="dashboard-container">
@@ -38,9 +38,6 @@ require_once(__DIR__.'/../includes/head.php');
             <li><a href="dashboard.php?page=cours_ext" class="<?= $page == 'cours_ext' ? 'active' : '' ?>">Cours extérieurs</a></li>
 
             <hr>
-            <li><a href="dashboard.php?page=forum" class="<?= $page == 'forum' ? 'active' : '' ?>">Le forum</a></li>
-
-            <hr>
             <li><a href="dashboard.php?page=guide" class="<?= $page == 'guide' ? 'active' : '' ?>">Guide d'utilisation</a></li>
             <li><a href="dashboard.php?page=aide" class="<?= $page == 'aide' ? 'active' : '' ?>">Aide et conseils</a></li>
           </ul>
@@ -60,9 +57,6 @@ require_once(__DIR__.'/../includes/head.php');
         include('pages/classes-inscrites.php');
         break;
     case 'cours_ext':
-        include('pages/accueil.php');
-        break;
-    case 'forum':
         include('pages/accueil.php');
         break;
     case 'guide':

@@ -11,7 +11,7 @@ require_once(__DIR__.'/../includes/head.php');
 ?>
 
 <body>
-<?php require_once(__DIR__.'/../includes/header-enseignant.php');
+<?php require_once(__DIR__.'/../includes/header-member.php');
 ?>
 
 <!-- ============= Navbar de bienvenu ============= -->

@@ -65,39 +65,37 @@
     cursor: default;
     z-index: 99 !important;
   }
+  .nav-links .dropdown li{
+    padding: 1rem 1rem !important;
+    border-bottom: 1px solid var(--white);
+    margin: 0 10px;
+  }
+  .nav-links .dropdown li a{
+    color: var(--black_soft);
+  }
+  .nav-links .dropdown > li:hover a{
+    color: var(--white) !important;
+  }
+  .nav-links .dropdown li:last-child{
+    border-bottom: none;
+  }
   .nav-links .dropdown-parent:hover  .dropdown{
     display: block;
   }
-  .nav-links .menu{
-    overflow: hidden;
+  .dropdown-menu li{
+    padding: 0px !important;
+    margin: 0px !important;
+    border: 1px solid red;
+    position: relative
   }
-  .nav-links .menu li{
-    position: relative;
-  }
-  .nav-links .menu li::after{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 1px;
-    background-color: var(--white); /* change selon ton style */
-  }
-  .nav-links .menu li:last-child::after{
-    height: 0px;
-  }
-  .nav-links .menu li a{
+  .dropdown-menu li a{
     display: block;
-    padding: 1rem 2rem;
-    color: var(--black_soft);
+    height: 100%;
+    width: 100%;
+    margin: 0px !important;
+    background-color: blueviolet;
   }
-  .nav-links .menu li a:last-child{
-    border-bottom: none;
-  }
-  .nav-links .menu li:hover{
-    background-color: #a3e4f0;
-  }
+  
   /* ========== Ressources Dropdown ========== */
   .nav-links .ressources:hover  .dropdown{
     display: flex;
@@ -127,7 +125,6 @@
     justify-content: space-between;
     width: 30vw;
     gap: 1rem;
-    padding: 0.5rem
   }
   .nav-links .ressources .dropdown ul li:hover div a{
     color: var(--blue)

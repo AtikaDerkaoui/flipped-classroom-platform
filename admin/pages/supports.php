@@ -22,7 +22,12 @@
                         </a>
                     </td>
                     <td>
-                        <button>Supprimer</button>
+                        <form action="/Memoire/actions/gestionSupport.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce support ?');">
+                            <input type="hidden" name="id_support" value="<?= $support['id_support'] ?>">
+                            <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
+
+                            <button type="submit" name="deleteSupport">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>

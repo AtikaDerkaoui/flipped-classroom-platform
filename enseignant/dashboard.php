@@ -16,7 +16,7 @@ $page = $_GET['page'] ?? ''; // page actuelle
 
 
 <body>
-  <?php require_once(__DIR__.'/../includes/header-enseignant.php');
+  <?php require_once(__DIR__.'/../includes/header-member.php');
   ?>
 
   <div class="dashboard-container">
@@ -37,8 +37,7 @@ $page = $_GET['page'] ?? ''; // page actuelle
         <ul>
           <li><a href="dashboard.php?page=classes" class="<?= $page == 'classes' ? 'active' : '' ?>">Classes</a></li>
           <li><a href="dashboard.php?page=cours-ext" class="<?= $page == 'cours-ext' ? 'active' : '' ?>">Cours extérieurs</a></li>
-          <hr>
-          <li><a href="dashboard.php?page=forum" class="<?= $page == 'forum' ? 'active' : '' ?>">Le forum</a></li>
+          
           <hr>
           <li><a href="dashboard.php?page=guide" class="<?= $page == 'guide' ? 'active' : '' ?>">Guide d'utilisation</a></li>
           <li><a href="dashboard.php?page=faq" class="<?= $page == 'faq' ? 'active' : '' ?>">FAQ</a></li>
@@ -58,9 +57,6 @@ $page = $_GET['page'] ?? ''; // page actuelle
         break;
     case 'cours-ext':
         include('pages/cours-ext.php');
-        break;
-    case 'forum':
-        include('pages/accueil.php');
         break;
     case 'guide':
         include('pages/accueil.php');

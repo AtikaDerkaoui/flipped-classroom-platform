@@ -50,8 +50,8 @@ $videos = $stmt_videos->fetchAll();
 ?>
 
 <body>
-  <?php // require_once(__DIR__.'/../includes/header-enseignant.php');
-     require_once(__DIR__.'/../../includes/header-eleve.php');
+  <?php
+     require_once(__DIR__.'/../../includes/header-member.php');
   ?>
 
   <div class="dashboard-container">

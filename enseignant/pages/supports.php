@@ -2,7 +2,7 @@
 <h1>Ajouter un support pédagogique</h1>
 <div class="form-container">
 <!-- Formulaire pour ajouter un nouveau support -->
-<form action="/Memoire/actions/addSupport.php" method="post" enctype="multipart/form-data" class="space-between form">
+<form action="/Memoire/actions/gestionSupport.php" method="post" enctype="multipart/form-data" class="space-between form">
     <label for="titre_support">Titre de support pédagogique: </label>
     <input type="text" name="titre_support" placeholder="Ex: Les systèmes distribués - Explication" required>
 
@@ -11,7 +11,7 @@
 
     <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
 
-    <button type="submit">Ajouter le support</button>
+    <button type="submit" name="addSupport">Ajouter le support</button>
 </form>
 </div>
 
@@ -28,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($supports as $support): ?>
+            <?php foreach ($supports as $support):  ?>
                 <tr>
                     <td><?= htmlspecialchars($support['titre_support']) ?></td>
                     <td><?= htmlspecialchars($support['type_support']) ?></td>
@@ -38,7 +38,12 @@
                         </a>
                     </td>
                     <td>
-                        <button>Supprimer</button>
+                        <form action="/Memoire/actions/gestionSupport.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce support ?');">
+                            <input type="hidden" name="id_support" value="<?= $support['id_support'] ?>">
+                            <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
+
+                            <button type="submit" name="deleteSupport">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>

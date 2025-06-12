@@ -38,7 +38,7 @@ require_once(__DIR__.'/../includes/head.php');
 <body>
 <!-- ================= Header ================= -->
 
-<?php require_once(__DIR__.'/../includes/header-eleve.php');
+<?php require_once(__DIR__.'/../includes/header-member.php');
 ?>
 
 <!-- ============= Navbar de bienvenu ============= -->
