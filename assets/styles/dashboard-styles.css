@@ -139,6 +139,71 @@
 
 
 /* ================================================= */
+/* =============== DASHBOARD: PROFIL =============== */
+/* ================================================= */
+.profil{
+    display: flex;
+    width: 70%;
+    min-height: 60vh;
+    margin: 2rem;
+    height: fit-content;
+    background-color: #066c94;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.288);
+}
+.profil .photo-container{
+    background-color: var(--blue2);
+    width: 30%;
+    flex-direction: column;
+    justify-content: unset;
+    padding: 2rem 0px;
+    color: var(--white);
+    line-height: 1.6;
+}
+.profil .profil-content{
+    background-color: var(--white);
+    width: 70%;
+}
+.profil .photo-container .photo{
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    background-color: var(--clear_gray);
+    margin-bottom: 1rem;
+}
+.profil-content{
+    padding: 1.5rem 4rem;
+}
+.profil-table{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.profil-table td, .profil-table th{
+    padding: 0.2rem 0px;
+}
+.profil-table th{
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--clear_gray);
+    margin-bottom: 5rem;
+}
+.profil-table thead{
+}
+.profil-table td{
+    font-size: 12pt;
+    color: var(--gray)
+}
+.profil-table td strong{
+    font-size: 14pt;
+    color: var(--black_soft)
+}
+.profil-table thead tr h2{
+    letter-spacing: 5px;
+    font-weight: 100 !important;
+    text-align: left;
+}
+.profil form input, .profil form select{
+    height: 2rem
+}
+/* ================================================= */
 /* =============== DASHBOARD: CLASSES =============== */
 /* ================================================= */
 .dashboard .classes{

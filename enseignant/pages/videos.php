@@ -2,6 +2,7 @@
 <div class="supports">
 <h1>Ajouter une capsule vidéo</h1>
 <!-- Formulaire pour ajouter un nouveau support -->
+<div class="form-container">
 <form action="/Memoire/actions/addVideo.php" method="post" enctype="multipart/form-data" class="space-between form">
     <label for="titre_video">Titre de la capsule vidéo: </label>
     <input type="text" name="titre_video" placeholder="Ex: Les fonctions - Introduction" required>
@@ -26,6 +27,7 @@
       }
     ?>
 </form>
+</div>
 
 <?php 
 $id_classe = $_GET['id_classe'];

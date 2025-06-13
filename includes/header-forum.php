@@ -56,9 +56,9 @@
             </li>
 
             <li class='dropdown-parent'>
-              <a href='/Memoire/<?= $_SESSION['role'] ?>/profil.php'><?= $_SESSION['nom'] ?> <i class='fa-solid fa-caret-down'></i></a>
-                <ul class='dropdown'>
-                    <li><a href='/Memoire/<?= $_SESSION['role'] ?>/profil.php'>Mon Profil</a></li>
+              <a href='/Memoire/<?= $_SESSION['role'] ?>/profil.php?page=infos'><?= $_SESSION['nom'] ?> <i class='fa-solid fa-caret-down'></i></a>
+                <ul class='dropdown menu'>
+                    <li><a href='/Memoire/<?= $_SESSION['role'] ?>/profil.php?page=infos'>Mon Profil</a></li>
                     <li><a href='/Memoire/<?= $_SESSION['role'] ?>/dashboard.php'>Mon Espace</a></li>
                     <li><a href='/Memoire/actions/logoutAction.php'>Déconnexion</a></li>
                 </ul>

@@ -1,0 +1,39 @@
+.ressources-container{
+    margin-top: 15vh;
+    padding: 2rem 10vw;
+    padding-right: 20vw;
+}
+.ressources-container li{
+    list-style-type: disc;
+}
+.ressources-container h1{
+    color: var(--blue);
+    display: block;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 2rem;
+    width: fit-content;
+    font-size: 25pt !important
+}
+.ressources-container section{
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+.ressources-container h2{
+    color: var(--blue2);
+    position: relative;
+    margin-bottom: 1rem;
+}
+.ressources-container h2::after{
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 10%;
+    height: 2px;
+    background-color: var(--yellow);
+    transition: 0.3s ease-in-out;
+}
+.ressources-container h2:hover::after{
+    width: 15%;
+}

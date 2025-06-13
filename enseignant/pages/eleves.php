@@ -7,7 +7,7 @@ $inscriptions = $stmt_inscriptions->fetchAll();
 ?>
 
 <?php
-$sql = "SELECT u.nom, u.prenom, u.id AS id_eleve
+$sql = "SELECT u.nom, u.prenom, u.id AS id_eleve, i.id_inscription AS id_inscription
         FROM inscriptions i
         JOIN utilisateurs u ON i.id = u.id
         WHERE i.id_classe = :id_classe";
@@ -39,9 +39,10 @@ $eleves = $stmt->fetchAll();
                     <td><?= htmlspecialchars($eleve['nom']) ?></td>
                     <td><?= htmlspecialchars($eleve['prenom']) ?></td>
                     <td>
-                        <form action="/Memoire/actions/gestionClasse.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce support ?');">
-                            <input type="hidden" name="id_support" value="<?= $support['id_support'] ?>">
+                        <form action="/Memoire/actions/deleteInscription.php" method="post" onsubmit="return confirm('Voulez-vous vraiment retirer <?= $eleve['nom'] . ' ' . $eleve['prenom']?> de votre classe ?');">
+                            <input type="hidden" name="id_inscription" value="<?= $eleve['id_inscription'] ?>">
                             <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
+
 
                             <button type="submit" name="deleteInscription">Supprimer</button>
                         </form>

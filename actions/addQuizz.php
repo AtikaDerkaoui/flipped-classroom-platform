@@ -32,9 +32,12 @@ if (isset($_POST['addQuizz'])) {
     }
 }
 
+
+
 if (isset($_POST['deleteQuizz'])) {
     $id_quizz = $_POST['id_quizz'];
     $id_classe = $_POST['id_classe'];
+    $role = $_SESSION['role'];
     
 
     $stmt = $conn->prepare("DELETE FROM quizz WHERE id_quizz = :id_quizz");
@@ -43,9 +46,9 @@ if (isset($_POST['deleteQuizz'])) {
 
     if (isset($_POST['id_video'])){
         $id_video = intval($_POST['id_video']);
-        header("Location: ../enseignant/pages/video.php?page3=video-feedback&id_classe=$id_classe&id_video=$id_video");
+        header("Location: ../$role/pages/video.php?page3=video-feedback&id_classe=$id_classe&id_video=$id_video");
     }else{
-        header("Location: ../enseignant/pages/classe.php?page2=quizz-standard&id_classe=$id_classe");
+        header("Location: ../$role/pages/classe.php?page2=quizz-standard&id_classe=$id_classe");
     }
 }
 ?>

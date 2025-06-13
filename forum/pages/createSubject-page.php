@@ -31,8 +31,9 @@ require_once(__DIR__.'/../../includes/head.php');
 ?>
 <div class="forum-container">
 <section class="forum-add-form">
-    <form action="/Memoire/actions/gestionForum.php" method="POST" class="form">
-        <h3>Ajouter un nouveau sujet dans <?= $sub['titre_sub'] ?></h3>
+    <form action="/Memoire/actions/gestionForum.php" method="POST" class="form form-reponse">
+        <h3>Ajouter un nouveau sujet dans :<br>
+        <span><?= $sub['titre_sub'] ?></span></h3>
           <input type="hidden" name="id_sub" value="<?= $id_sub ?>">
           <input type="hidden" name="id" value="<?= $id ?>">
 

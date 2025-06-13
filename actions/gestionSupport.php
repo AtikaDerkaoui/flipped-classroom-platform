@@ -56,12 +56,13 @@ if (isset($_POST['addSupport'])) {
 if (isset($_POST['deleteSupport'])) {
     $id_support = $_POST['id_support'];
     $id_classe = $_POST['id_classe'];
+    $role = $_SESSION['role'];
 
     $stmt = $conn->prepare("DELETE FROM supports WHERE id_support = :id_support");
     $stmt->bindParam(':id_support', $id_support);
     $stmt->execute();
 
-    header("Location: ../enseignant/pages/classe.php?page2=supports&id_classe=$id_classe");
+    header("Location: ../$role/pages/classe.php?page2=supports&id_classe=$id_classe");
     exit;
 }
 ?>

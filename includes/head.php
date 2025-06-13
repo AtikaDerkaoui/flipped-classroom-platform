@@ -7,7 +7,8 @@
   <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/header-styles.css">
   <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/styles.css">
   <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/dashboard-styles.css">
-    <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/forum-styles.css">
+  <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/forum-styles.css">
+  <link rel="stylesheet" type="text/css" href="/../Memoire/assets/styles/ressources-styles.css">
 
   <!-- Animation JS -->
   <script type="text/javascript" src="/../Memoire/assets/scripts/scripts.js" defer></script>

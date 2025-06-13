@@ -26,9 +26,8 @@ require_once(__DIR__.'/../includes/head.php');
     <div class="left-part">
         <?php
             $nav_items = [
-                'profil' => 'Profil',
-                'modifier-infos' => 'Modifier les informations',
-                'logout' => 'Se déconnecter',
+                'infos' => 'Mes informations',
+                'modifier-infos' => 'Modifier mes informations',
                 // $key => $label
             ];
             $page = $_GET['page'] ?? '';
@@ -42,10 +41,11 @@ require_once(__DIR__.'/../includes/head.php');
                 </a>
             </li>
             <?php endforeach; ?>
+            <li><a href="/Memoire/actions/logoutAction.php">Se déconnecter</a></li>
         </ul>
     </div>
 
-    <div class="right-part">
+    <div class="right-part flex-centered">
         <?php 
         // Récupérer la page depuis l’URL
         $page = $_GET['page'] ?? 'profil';
@@ -53,20 +53,13 @@ require_once(__DIR__.'/../includes/head.php');
         // Inclure dynamiquement la bonne page
         switch ($page) {
         case 'modifier-infos':?>
-            <h1>Modifier mes informations</h1>
             <?php require_once(__DIR__.'/../includes/modifyProfil-form.php');?>
 
             <?php break;
-        case 'logout': ?>
-            <h1>Se déconnecter</h1>
-            <?php break;
-        case 'profil': 
+        
+        case 'infos': 
             default: ?>
-            <h1>Mes informations</h1>
-            <h4>Nom : <span><?php echo $_SESSION['nom']; ?></span></h4>
-            <h4>Prénom : <span><?php echo $_SESSION['prenom']; ?></span></h4>
-            <h4>Email : <span><?php echo $_SESSION['email']; ?></span></h4>
-            <h4>Role : <span><?php echo $_SESSION['role']; ?></span></h4>
+            <?php require_once(__DIR__.'/../includes/profilInfos.php');?>
             <?php break;
         }
         ?>

@@ -154,10 +154,14 @@ button{
   box-shadow: 0px 4px 4px 0px #5f5f5fbb;
 }
 
-/* Bouton stylé */
-.btn-style{
-  padding: 0.4rem 1rem;
+/* Bouton bleu */
+.btn-blue{
   background-color: var(--blue);
+  color: var(--white);
+  padding: 0.4rem 1rem;
+}
+.btn-blue:hover{
+  background-color: #0975a0;
 }
 
 /* bouton pour fermer */
@@ -410,7 +414,6 @@ button{
 /* ================================================= */
 /* =============== INDEX: PRINCIPAL SECTION =============== */
 /* ================================================= */
-
 .principal{
   background-color: var(--white);
   position: relative;
@@ -460,4 +463,181 @@ button{
   width: 100%;
   height: 40%;
   z-index: 1;
+}
+
+/* ================================================= */
+/* =============== INDEX: CLASSE INVERSEE =============== */
+/* ================================================= */
+.classe-inversee{
+  overflow: hidden;
+  padding: 10vw;
+  background-color: var(--blue);
+  color: var(--white);
+  text-align: center;
+}
+.classe-inversee h1{
+  font-size: 35pt;
+  margin-bottom: 5rem
+}
+.classe-inversee > div{
+  gap: 2rem
+}
+.classe-inversee img{
+  height: 10rem;
+}
+.classe-inversee > div div{
+  width: 18vw;
+  flex-direction: column;
+}
+.classe-inversee p{
+  line-height: 1.6;
+}
+
+
+/* ================================================= */
+/* =============== INDEX: FONCTIONNALITES =============== */
+/* ================================================= */
+.fonc{
+  padding: 6rem 5rem;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.fonc h1{
+  text-align: center;
+  color: var(--blue);
+  font-size: 25pt;
+  margin-bottom: 6rem;
+}
+.fonc .partie{
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  margin-bottom: 6rem;
+}
+.fonc .partie:nth-child(odd){
+  flex-direction: row-reverse;
+}
+.fonc .partie:nth-child(even){
+  flex-direction: row;
+}
+.fonc .partie img{
+  width: 30vw;
+}
+.fonc .partie div{
+  width: 30vw;
+  align-self: center;
+  line-height: 1.6;
+}
+.fonc .partie h3{
+  color: var(--black_soft);
+  margin-bottom: 1rem
+}
+
+.fonc > img{
+  position: absolute;
+  width: 100vw;
+}
+.fonc .design1{
+  height: 35vh;
+  width: 60vw;
+  transform: rotate(5deg);
+  bottom: -2rem;
+  left: 0;
+}
+.fonc .design2{
+  height: 30vh;
+  width: 80vw;
+  bottom: -3rem;
+  right: 0;
+}
+
+
+
+/* ================================================= */
+/* =============== INDEX: FORUM =============== */
+/* ================================================= */
+.acc-forum{
+  background-color: var(--clear_blue);
+  text-align: center;
+  padding: 4rem 5rem
+}
+.acc-forum h1{
+  color: var(--black_soft);
+  font-size: 25pt;
+  margin-bottom: 6rem;
+}
+.acc-forum img{
+  width: 20vw
+}
+.acc-forum > div div{
+  width: 20vw;
+  align-self:flex-end;
+  position: relative;
+}
+.acc-forum p{
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.acc-forum > div div img{
+  position: absolute;
+  top: -30%;
+  left: -100%;
+  height: 90%;
+}
+
+
+
+/* ================================================= */
+/* =============== INDEX: REJOINDRE =============== */
+/* ================================================= */
+.rejoindre{
+  height: 60vh;
+  background-color: var(--blue);
+}
+
+
+
+/* ================================================= */
+/* =============== INDEX: FOOTER =============== */
+/* ================================================= */
+footer{
+  height: fit-content;
+  background-color: var(--white);
+  color: var(--black_soft);
+  padding: 6rem 10vw;
+  line-height: 2;
+}
+footer div{
+  margin-bottom: 6rem;
+}
+footer h4{
+  margin-bottom: 1.2rem;
+}
+footer p{
+  text-align: center;
+  color: var(--gray)
+}
+footer ul li{
+  position: relative
+}
+footer ul li::before{
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #0056b3;
+}
+footer ul li:hover::before{
+  width: 3rem;
+  transition: 0.3s ease-in-out;
+
+}
+footer ul li:first-child:hover{
+  transform: none;
+  color: var(--black_soft)
 }

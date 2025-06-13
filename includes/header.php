@@ -30,32 +30,32 @@
         <!-- La partie droite du navbar (ressources et inscription) -->
         <ul class="nav-links" id="nav-links">
             <li class="dropdown-parent ressources">
-              <a href="#">Ressources <i class="fa-solid fa-caret-down"></i></a>
+              <a href="/Memoire/pages/ressources.php?page=ress1">Ressources <i class="fa-solid fa-caret-down"></i></a>
               <!-- Dropdown des ressources -->
               <div class="dropdown">
                 <!-- Partie gauche des ressources (classe inversée) -->
                 <ul>
                   <li> <!-- Ressource 1 -->
-                    <img src="assets/img/ressources-pic1.png">
+                    <img src="/Memoire/assets/img/ressources-pic1.png">
                     <div>
-                      <a href="#">Comprendre la classe inversée</a>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
+                      <a href="/Memoire/pages/ressources.php?page=ress1">Comprendre la classe inversée</a>
+                      <p>Introduction simple au concept de la classe inversée.</p>
                     </div>
                   </li>
                   <!-- Ressource 2 -->
                   <li>
-                    <img src="assets/img/ressources-pic2.png">
+                    <img src="/Memoire/assets/img/ressources-pic2.png">
                     <div>
-                      <a href="#">La classe inversée dans le monde</a>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
+                      <a href="/Memoire/pages/ressources.php?page=ress2">La classe inversée dans le monde</a>
+                      <p>Aperçu de l’adoption croissante de cette méthode dans plusieurs pays.</p>
                     </div>
                   </li>
                   <!-- Ressource 3 -->
                   <li>
-                    <img src="assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
-                      <a href="#">La classe inversée en Algérie</a>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
+                      <a href="/Memoire/pages/ressources.php?page=ress3">La classe inversée en Algérie</a>
+                      <p>L’évolution progressive de la classe inversée en Algérie et son adoption dans les écoles algériennes.</p>
                     </div>
                   </li>
                 </ul>
@@ -64,18 +64,18 @@
                 <ul>
                   <!-- Ressource 1 -->
                   <li>
-                    <img src="assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
-                      <a href="#">Apprendre à utiliser la plateforme</a>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
+                      <a href="/Memoire/pages/ressources.php?page=guide">Apprendre à utiliser la plateforme</a>
+                      <p>Instructions simples pour bien naviguer et utiliser la plateforme.</p>
                     </div>
                   </li>
                   <!-- Ressource 2 -->
                   <li>
-                    <img src="assets/img/ressources-pic3.png">
+                    <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
-                      <a href="#">FAQ</a>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
+                      <a href="/Memoire/pages/ressources.php?page=faq">FAQ</a>
+                      <p>Réponses rapides aux questions fréquentes des utilisateurs.</p>
                     </div>
                   </li>
                 </ul>
@@ -95,8 +95,8 @@
                         </ul>
                 </li>";
               }else{
-                echo"<li><a href='pages/login.php'>Se connecter</a></li>
-                <li><a href='pages/register.php' class='btn'>S'inscrire</a></li>
+                echo"<li><a href='/Memoire/pages/login.php'>Se connecter</a></li>
+                <li><a href='/Memoire/pages/register.php' class='btn'>S'inscrire</a></li>
                 ";
               }
             ?>

@@ -9,7 +9,6 @@
 }
 .forum-container .right-part{
   width: 20%;
-  border: 2px solid rgb(0, 0, 0)
 }
 .forum-form{
   background: var(--white);
@@ -122,6 +121,13 @@ width: 100% !important;
 .forum-table th:nth-child(3),
 .forum-table td:nth-child(3) {
   width: 30%;
+}
+
+.forum-table tr:hover{
+  background-color: var(--clear_gray);
+}
+.forum-table thead tr:hover{
+  background-color: var(--blue);
 }
 
 /* ================ Page: sujets ================ */
@@ -256,7 +262,7 @@ width: 100% !important;
   transition: border 0.2s ease;
 }
 
-.form-reponse textarea:focus {
+.form-reponse textarea:focus, .form-reponse input:focus {
   border-color: var(--blue2);
 }
 
@@ -273,4 +279,33 @@ width: 100% !important;
 
 .form-reponse button:hover {
   background-color: var(--clear_blue);
+}
+
+.form-reponse input{
+  height: 2rem;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+
+
+/* Ajouter un sujet */
+.forum-add-form{
+  line-height: 1.6;
+  padding: 0 10rem
+}
+.forum-add-form h3{
+  color: var(--black_soft);
+  font-size: 16pt;
+  margin-bottom: 2rem;
+}
+.forum-add-form h3 span{
+  color: var(--blue2);
+  font-size: 13pt
 }

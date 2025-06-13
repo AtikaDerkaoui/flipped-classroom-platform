@@ -89,6 +89,12 @@ require_once(__DIR__.'/../../includes/head.php');
                 <div class="right-part-video">
                   <h3>Description:</h3>
                   <p><?= htmlspecialchars($video['description_video']) ?></p>
+                  <form action="/Memoire/actions/deleteVideo.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette video ?');">
+                    <input type="hidden" name="id_video" value="<?= $video['id_video'] ?>">
+                    <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
+
+                    <button type="submit" name="deleteVideo" class="bouton-standard btn-blue"><i class="fa-solid fa-trash"></i> Supprimer</button>
+                  </form>
                 </div>
               </div>              
               <?php

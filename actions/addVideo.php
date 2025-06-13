@@ -45,4 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: ../enseignant/pages/classe.php?page2=videos&id_classe=$id_classe");
     exit;
 }
+
+
 ?>

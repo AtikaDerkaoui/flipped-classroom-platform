@@ -4,7 +4,7 @@
     <!-- Supprimer la classe -->
     <form action="/Memoire/actions/deleteClass.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette classe ?');">
         <input type="hidden" name="id_classe" value="<?= $id_classe ?>">
-        <button type="submit" name="supprimer" class="bouton-standard"><i class="fa-solid fa-trash"></i> Supprimer la classe</button>
+        <button type="submit" name="supprimer" class="bouton-standard btn-blue"><i class="fa-solid fa-trash"></i> Supprimer la classe</button>
     </form>
 </div>
 

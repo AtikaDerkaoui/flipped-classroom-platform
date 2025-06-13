@@ -66,7 +66,7 @@ $users = $stmt->fetchAll();
             echo "Admin";
         }else{
         ?>
-        <form action="../actions/deleteUser.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+        <form action="/Memoire/actions/deleteUser.php" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
           <input type="hidden" name="id" value="<?= $user['id'] ?>">
           <button type="submit">Supprimer</button>
         </form>
