@@ -30,6 +30,13 @@ switch ($page) {
         include 'ressources/ress3.php';
         break;
     
+    case 'faq':
+        include 'ressources/faq.php';
+        break;
+    case 'guide':
+        include 'ressources/guide.php';
+        break;
+    
     case 'ress1':
         default:
         include 'ressources/ress1.php';

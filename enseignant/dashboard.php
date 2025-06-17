@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once '../connexion.php';
+
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'enseignant') {
     header("Location: ../pages/login.php");
@@ -28,7 +30,7 @@ $page = $_GET['page'] ?? ''; // page actuelle
           ?>
         </h3>
       
-        <h3><a href="#" class="right-part">Guide d'utilisation</a></h3>
+        <h3><a href="/Memoire/pages/ressources.php?page=guide" class="right-part">Guide d'utilisation</a></h3>
     </section>
 
     <!-- ============= Dashboard ============= -->

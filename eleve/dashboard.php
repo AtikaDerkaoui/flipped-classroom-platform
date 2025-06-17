@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once '../connexion.php';
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'eleve') {
     header("Location: ../pages/login.php");
     exit();
@@ -26,7 +28,7 @@ require_once(__DIR__.'/../includes/head.php');
           ?>
         </h3>
       
-        <h3><a href="#" class="right-part">Guide d'utilisation</a></h3>
+        <h3><a href="/Memoire/pages/ressources.php?page=guide" class="right-part">Guide d'utilisation</a></h3>
       </section>
 
       <!-- ============= Dashboard ============= -->
@@ -57,7 +59,7 @@ require_once(__DIR__.'/../includes/head.php');
         include('pages/classes-inscrites.php');
         break;
     case 'cours_ext':
-        include('pages/accueil.php');
+        include('pages/cours-ext.php');
         break;
     case 'guide':
         include('pages/accueil.php');

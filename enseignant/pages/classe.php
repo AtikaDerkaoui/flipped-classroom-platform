@@ -72,7 +72,7 @@ $id_departement_actuel = $info['id_departement'];
     <section class="bienvenu-navbar space-between">
         <h3 class="left-part"><a href="javascript:history.back()">Retour</a></h3>
       
-        <h3><a href="#" class="right-part">Guide d'utilisation</a></h3>
+        <h3><a href="/Memoire/pages/ressources.php?page=guide" class="right-part">Guide d'utilisation</a></h3>
     </section>
 
     <!-- ============= Dashboard ============= -->

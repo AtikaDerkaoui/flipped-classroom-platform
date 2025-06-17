@@ -528,7 +528,12 @@
 .supports h1{
     color: var(--white);
     background-color: var(--blue);
-    padding: 1rem 2rem
+    padding: 1rem 2rem;
+}
+.supports > p{
+    margin-bottom: 1.5rem;
+    background-color: var(--clearer_gray);
+    padding: 1rem 1rem;
 }
 .supports .form-container{
     padding-bottom: 2.5rem;
@@ -903,7 +908,7 @@
     margin-bottom: 1rem;
     width: fit-content
 }
-.ajout-question-form .btn-fermer-ajout-question{
+.ajout-question-form .close-button /*.btn-fermer-ajout-question*/{
     position: absolute;
     top: 2rem;
     right: 2rem;

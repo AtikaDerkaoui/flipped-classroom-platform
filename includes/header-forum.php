@@ -6,14 +6,14 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="/Memoire/<?= $_SESSION['role'] ?>/dashboard.php">Accueil</a></li>
             <li class="dropdown-parent ressources">
-              <a href="#">Ressources <i class="fa-solid fa-caret-down"></i></a>
+              <a href="/Memoire/pages/ressources.php?page=ress1">Ressources <i class="fa-solid fa-caret-down"></i></a>
               <div class="dropdown">
                 <ul>
                   <li>
                     <img src="/Memoire/assets/img/ressources-pic1.png">
                     <!--<img src="../assets/img/ressources-pic1.png">-->
                     <div>
-                      <a href="#">Comprendre la classe inversée</a>
+                      <a href="/Memoire/pages/ressources.php?page=ress1">Comprendre la classe inversée</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
                     </div>
                   </li>
@@ -21,7 +21,7 @@
                   <li>
                     <img src="/Memoire/assets/img/ressources-pic2.png">
                     <div>
-                      <a href="#">La classe inversée dans le monde</a>
+                      <a href="/Memoire/pages/ressources.php?page=ress2">La classe inversée dans le monde</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
                     </div>
                   </li>
@@ -29,7 +29,7 @@
                   <li>
                     <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
-                      <a href="#">La classe inversée en Algérie</a>
+                      <a href="/Memoire/pages/ressources.php?page=ress3">La classe inversée en Algérie</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
                     </div>
                   </li>
@@ -39,7 +39,7 @@
                   <li>
                     <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
-                      <a href="#">Apprendre à utiliser la plateforme</a>
+                      <a href="/Memoire/pages/ressources.php?page=guide">Apprendre à utiliser la plateforme</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
                     </div>
                   </li>
@@ -47,7 +47,7 @@
                   <li>
                     <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
-                      <a href="#">FAQ</a>
+                      <a href="/Memoire/pages/ressources.php?page=faq">FAQ</a>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ipsam illo.</p>
                     </div>
                   </li>

@@ -46,7 +46,7 @@
                   <li>
                     <img src="/Memoire/assets/img/ressources-pic3.png">
                     <div>
-                      <a href="#">FAQ</a>
+                      <a href="/Memoire/pages/ressources.php?page=faq">FAQ</a>
                       <p>Réponses rapides aux questions fréquentes des utilisateurs.</p>
                     </div>
                   </li>
