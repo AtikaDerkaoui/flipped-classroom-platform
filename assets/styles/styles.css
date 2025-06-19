@@ -595,7 +595,16 @@ button{
 .rejoindre{
   height: 60vh;
   background-color: var(--blue);
+  color: var(--white);
+  flex-direction: column;
+  gap: 6rem
 }
+.rejoindre .btn{
+  color: var(--black_soft) !important;
+  padding: 10px 2rem;
+  box-shadow: none;
+}
+
 
 
 
@@ -639,4 +648,22 @@ footer ul li:hover::before{
 footer ul li:first-child:hover{
   transform: none;
   color: var(--black_soft)
+}
+
+
+
+/* ================================================= */
+/* =============== MEDIA QUERIES =============== */
+/* ================================================= */
+@media (max-width: 1280px) {
+  .classe-inversee h1{
+    font-size: 26pt;
+  }
+  .acc-forum h1{
+    font-size: 20pt
+  }
+}
+
+@media (max-width: 1024px) {
+  
 }

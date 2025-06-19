@@ -11,6 +11,8 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.13);
+
   }
   .logo a{
     color: var(--white);

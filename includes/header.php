@@ -82,24 +82,12 @@
               </div>
             </li>
 
-            <?php 
-              if(isset($_SESSION['role']) && $_SESSION['role'] === 'eleve'){
-                echo"<li><a href='eleve/dashboard.php'>Hello Eleve, " . $_SESSION['nom'] . "<i class='fa-solid fa-caret-down'></i></a></li>";
-              }
-              elseif (isset($_SESSION['role']) && $_SESSION['role'] === 'enseignant') {
-                echo"<li class='dropdown-parent'><a href='enseignant/dashboard.php'>" . $_SESSION['nom'] . " <i class='fa-solid fa-caret-down'></i></a>
-                        <ul class='dropdown'>
-                          <li><a href='#'>Mon Profil</a></li>
-                          <li><a href='#'>Mes Classes</a></li>
-                          <li><a href='../actions/logoutAction.php'>Déconnexion</a></li>
-                        </ul>
-                </li>";
-              }else{
-                echo"<li><a href='/Memoire/pages/login.php'>Se connecter</a></li>
+            
+              <li><a href='/Memoire/pages/login.php'>Se connecter</a></li>
                 <li><a href='/Memoire/pages/register.php' class='btn'>S'inscrire</a></li>
-                ";
-              }
-            ?>
+              
+
+          
         </ul>
 
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">

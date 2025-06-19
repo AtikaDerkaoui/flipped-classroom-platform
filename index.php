@@ -141,8 +141,9 @@
       </div>
     </section>
 
-    <section class="rejoindre">
-      
+    <section class="rejoindre flex-centered">
+      <h1>DzDucation : L'avenir de l'éducation commence ici !</h1>
+      <a href="Memoire/pages/register.php" class="btn">Rejoignez-nous</a>
     </section>
 
     <footer>
