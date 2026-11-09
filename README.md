@@ -10,4 +10,7 @@ The platform provides dedicated functionality for administrators, teachers, and 
 
 *   **Frontend**: HTML5, CSS3, JavaScript
 *   **Backend**: PHP
-*   **Database**: MySql
+*   **Database**: MySQL
+
+## Preview
+
