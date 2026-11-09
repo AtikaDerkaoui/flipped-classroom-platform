@@ -13,4 +13,10 @@ The platform provides dedicated functionality for administrators, teachers, and 
 *   **Database**: MySQL
 
 ## Preview
+**Full Website**
 
+<img src="assets/img/full-website-preview.png" alt="Website Preview" width="500">
+
+**Home Page for Teacher**
+
+<img src="assets/img/home-preview.png" alt="Home Page Preview" width="500">
